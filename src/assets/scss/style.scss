@@ -1,0 +1,49 @@
+@import "variables";
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: $color-text;
+}
+
+aside .nav {
+        a {
+            transition: 0.3s linear;
+
+            &:hover {
+                margin-left: .5rem;
+
+                &>* {
+                    color: $color-primary;
+                }
+            }
+
+            &.active>* {
+                color: $color-primary;
+                font-weight: 700;
+            }
+        }
+}
+
+.shadow-custom {
+    box-shadow: $box-shadow;
+}
+.h-3rem {
+    height: 3rem;
+}
+.w-3rem {
+    width: 3rem;
+}
+main {
+    background-color: $color-background;
+    
+    .key-result i {
+        opacity: 0;
+        transition: .3s linear;
+    }
+    .key-result:hover i {
+        opacity: 1;
+    }
+}
