@@ -5,8 +5,8 @@ const sidebarData = [
     {
         key: 1,
         icon: 'add_circle',
-        name: 'Create Objective',
-        url: '/create_objective'
+        name: 'Create OKR',
+        url: '/create_okr'
     },
     {
         key: 2,
@@ -31,7 +31,7 @@ const Sidebar = () => {
     const sidebarList = sidebarData.map((item) => <SidebarItem key={item.key} icon={item.icon} name={item.name} url={item.url} />)
     return (
         <aside className='col-1 col-lg-auto ps-2 ps-lg-3 pe-lg-4 position-sticky top-0 start-0 h-100'>
-            <div class="nav flex-column ps-md-3">
+            <div className="nav flex-column ps-md-3">
                 {sidebarList}
             </div>
         </aside>

@@ -13,7 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<AllObjectives />} />
             <Route path="/all_objectives" element={<Navigate to="/" />} />
-            <Route path="/create_objective" element={<CreateOKR />} />
+            <Route path="/create_okr" element={<CreateOKR />} />
             <Route path="/detail" element={<Detail />} />
           </Routes>
         </main>
