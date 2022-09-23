@@ -30,8 +30,8 @@ const sidebarData = [
 const Sidebar = () => {
     const sidebarList = sidebarData.map((item) => <SidebarItem key={item.key} icon={item.icon} name={item.name} url={item.url} />)
     return (
-        <aside className='col-1 col-lg-auto ps-2 ps-lg-3 pe-lg-4 position-sticky top-0 start-0 h-100'>
-            <div className="nav flex-column ps-md-3">
+        <aside className='col-1 col-lg-auto pe-lg-4 position-sticky top-0 start-0'>
+            <div className="nav flex-column">
                 {sidebarList}
             </div>
         </aside>

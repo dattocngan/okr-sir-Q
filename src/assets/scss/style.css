@@ -3,21 +3,14 @@
   margin: 0;
   text-decoration: none;
   box-sizing: border-box;
-  color: #3d3c3d;
 }
 
 aside .nav a {
   transition: 0.3s linear;
+  color: #3d3c3d;
 }
 aside .nav a:hover {
-  margin-left: 0.5rem;
-}
-aside .nav a:hover > * {
   color: #1250da;
-}
-aside .nav a.active > * {
-  color: #1250da;
-  font-weight: 700;
 }
 
 .shadow-custom {
@@ -30,6 +23,10 @@ aside .nav a.active > * {
 
 .w-3rem {
   width: 3rem;
+}
+
+.h-100vh {
+  height: 100vh;
 }
 
 main {

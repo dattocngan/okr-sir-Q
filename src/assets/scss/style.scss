@@ -5,24 +5,16 @@
     margin: 0;
     text-decoration: none;
     box-sizing: border-box;
-    color: $color-text;
+    // color: $color-text;
 }
 
 aside .nav {
         a {
             transition: 0.3s linear;
+            color: $color-text;
 
             &:hover {
-                margin-left: .5rem;
-
-                &>* {
-                    color: $color-primary;
-                }
-            }
-
-            &.active>* {
                 color: $color-primary;
-                font-weight: 700;
             }
         }
 }
@@ -35,6 +27,9 @@ aside .nav {
 }
 .w-3rem {
     width: 3rem;
+}
+.h-100vh {
+    height: 100vh;
 }
 main {
     background-color: $color-background;

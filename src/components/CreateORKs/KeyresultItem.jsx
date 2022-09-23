@@ -49,6 +49,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
+        <div className="invalid-feedback ms-3">Key result is required</div>
       </div>
       <div className="col col-md-2">
         {isDefault && <p className="fw-bold">Target:</p>}
@@ -64,14 +65,17 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
             />
           </div>
         ) : (
-          <input
-            className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
-            type="text"
-            placeholder="200,000,000"
-            required
-            onChange={(e) => setTarget(e.target.value)}
-            value={target}
-          />
+          <>
+            <input
+              className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
+              type="text"
+              placeholder="200,000,000"
+              required
+              onChange={(e) => setTarget(e.target.value)}
+              value={target}
+            />
+            <div className="invalid-feedback ms-3">Target is required</div>
+          </>
         )}
       </div>
       <div className="col col-md-2">
@@ -84,6 +88,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
           onChange={(e) => setDueDate(e.target.value)}
           value={dueDate}
         />
+        <div className="invalid-feedback ms-3">Due date is required</div>
       </div>
       <div className="col col-md-3">
         {isDefault && <p className="fw-bold">Unit:</p>}
@@ -100,7 +105,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
         </div>
       </div>
       <i
-        className="col-auto text-center material-icons text-black-50 ripple-surface-dark align-self-center"
+        className="col-auto text-center material-icons text-black-50 ripple-surface-dark align-self-center btn shadow-0 p-0"
         onClick={() => deleteKeyresult(id)}
       >
         {isDefault ? "" : "close"}

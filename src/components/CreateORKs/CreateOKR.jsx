@@ -6,49 +6,18 @@ const CreateOKR = () => {
   const [newOkr, setNewOkr] = useState({});
   const [objectiveData, setObjectiveData] = useState({});
   const [keyresultData, setKeyresultData] = useState([]);
+  const [wasValidated, setWasValidated] = useState('');
 
   const submitHandler = (e) => {
-    e.preventDefault();
-    if (objectiveData.objective === "") {
-      return alert("Please input objective");
+    if (!e.target.checkValidity()) {
+      e.preventDefault();
     }
-    if (objectiveData.dueDate === "") {
-      return alert("Please choose due date");
-    }
-    if (objectiveData.goalType === "") {
-      return alert("Please input goal type");
-    }
-    if (objectiveData.reason === "") {
-      return alert("Please input reason");
-    }
-    if (objectiveData.status === "") {
-      return alert("Please input status");
-    }
-    let flag = false;
-    keyresultData.forEach((keyresult) => {
-      if (keyresult.name === "") {
-        flag = true;
-        return alert("Please input keyresult");
-      }
-      if (keyresult.target === "") {
-        flag = true;
-        return alert("Please input target");
-      }
-      if (keyresult.dueDate === "") {
-        flag = true;
-        return alert("Please choose due date");
-      }
-      if (keyresult.unit === "") {
-        flag = true;
-        return alert("Please choose unit");
-      }
-    });
-    if (flag) return;
 
+    setWasValidated("was-validated");
     setNewOkr({ ...objectiveData, keyresultData: keyresultData });
   };
 
-  // useEffect(() => console.log(newOkr), [newOkr]);
+  useEffect(() => console.log(newOkr), [newOkr]);
 
   const getObjectiveData = (data) => setObjectiveData(data);
 
@@ -57,7 +26,11 @@ const CreateOKR = () => {
   return (
     <>
       <h1>Create OKR</h1>
-      <form id="form" noValidate onSubmit={submitHandler}>
+      <form
+        noValidate
+        onSubmit={submitHandler}
+        className={wasValidated}
+      >
         <CreateObjective getObjectiveData={getObjectiveData} />
         <CreateKeyresult getKeyresultData={getKeyresultData} />
         <button

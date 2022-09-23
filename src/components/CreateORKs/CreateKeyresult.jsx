@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import KeyresultItem from "./KeyresultItem";
 
-const CreateKeyresult = ({ getKeyresultData }) => {
+const CreateKeyresult = ({ getKeyresultData}) => {
   const [keyresults, setKeyresults] = useState([
     {
       id: 1,
       name: "",
       target: "",
       dueDate: "",
-      unit: "%",
+      unit: "",
     },
   ]);
+
 
   useEffect(() => {
     getKeyresultData(keyresults);
@@ -24,7 +25,7 @@ const CreateKeyresult = ({ getKeyresultData }) => {
             name:'',
             target:'',
             dueDate:'',
-            unit:'%'
+            unit:''
         }
     ])
   };
