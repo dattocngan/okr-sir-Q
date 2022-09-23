@@ -6,7 +6,7 @@ const SidebarItem = (props) => {
         <Link to={props.url}>
             <div className='placeholder-glow ps-md-3 px-2 py-4 d-flex align-items-center fw-semibold'>
                 <span className='material-icons'>{props.icon}</span>
-                <span className='fs-5 ms-3 d-none d-lg-block'>{props.name}</span>
+                <span className='fs-5 ms-lg-3 d-none d-lg-block'>{props.name}</span>
             </div>
         </Link>
     )
