@@ -1,12 +1,14 @@
 import React from 'react'
+import Content from './Content'
+import Header from './Header'
 
 const Detail = () => {
-  const string = 'age';
-  const Dat = {[string]: ''};
-  console.log(Dat);
-  console.log();
+
   return (
-    <div>Detail</div>
+    <div className='w-100'>
+      <Header/>
+      <Content/>
+    </div>
   )
 }
 

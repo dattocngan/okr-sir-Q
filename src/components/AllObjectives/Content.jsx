@@ -16,7 +16,7 @@ const data = [
         objectiveId: "0c9c70d5-25c0-4bb1-ade7-84d96905ce85",
         content: "Đạt học bổng",
         target: 10,
-        currentAchievement: 0,
+        currentAchievement: 4,
         unit: "MONEY",
         deadlineAt: "2022-08-29T16:58:16Z",
       },
