@@ -29,6 +29,16 @@ aside .nav a:hover {
   height: 100vh;
 }
 
+.square-2rem {
+  width: 2rem;
+  height: 2rem;
+}
+
+.square-1rem {
+  width: 1rem;
+  height: 1rem;
+}
+
 main {
   background-color: #f9fbfc;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import avatar from "../../assets/images/img.jpg";
 
 const CreateObjective = ({ getObjectiveData }) => {
     const [objective, setObjective] = useState("");
@@ -22,7 +23,7 @@ const CreateObjective = ({ getObjectiveData }) => {
           <p className="fw-bold">Aspirational objective:</p>
           <div className="d-flex">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/%E7%8E%8B%E4%B8%80%E5%8D%9A.jpg/800px-%E7%8E%8B%E4%B8%80%E5%8D%9A.jpg"
+              src={avatar}
               alt=""
               className="rounded-circle me-3 h-3rem w-3rem object-cover"
             />
