@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import CreateKeyresult from "./CreateKeyresult";
 import CreateObjective from "./CreateObjective";
 
@@ -19,9 +19,9 @@ const CreateOKR = () => {
 
   useEffect(() => console.log(newOkr), [newOkr]);
 
-  const getObjectiveData = (data) => setObjectiveData(data);
+  const getObjectiveData = useCallback((data) => setObjectiveData(data), []);
 
-  const getKeyresultData = (data) => setKeyresultData(data);
+  const getKeyresultData = useCallback((data) => setKeyresultData(data),[]);
 
   return (
     <>

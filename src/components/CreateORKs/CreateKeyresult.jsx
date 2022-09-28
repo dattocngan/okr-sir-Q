@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import KeyresultItem from "./KeyresultItem";
 
 const CreateKeyresult = ({ getKeyresultData }) => {
@@ -33,14 +33,24 @@ const CreateKeyresult = ({ getKeyresultData }) => {
     setKeyresults(keyresults.filter((keyresult) => keyresult.id !== id));
   };
 
-  const updateKeyresult = (id, newValue) => {
-    setKeyresults(
-      keyresults.map((keyresult) => {
-        if (keyresult.id === id) return newValue;
-        else return keyresult;
-      })
-    );
-  };
+  const updateKeyresult = useCallback((id, newValue) => {
+    // setKeyresults(
+    //   keyresults.map((keyresult) => {
+    //     if (keyresult.id === id) return newValue;
+    //     else return keyresult;
+    //   })
+    // );
+    setKeyresults(prev => {
+      const newKeyResults = [...prev];
+      for (let [index, val] of newKeyResults.entries()) {
+        if (val.id === id) {
+          newKeyResults[index] = newValue;
+          break;
+        } 
+      }
+      return newKeyResults;
+    })
+  }, []);
 
   return (
     <div className="mt-4" id="wrapper">
