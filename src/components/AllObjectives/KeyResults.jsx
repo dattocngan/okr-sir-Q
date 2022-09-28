@@ -3,7 +3,7 @@ import KeyResultItem from './KeyResultItem';
 
 const KeyResults = ({keyResults, toggle, getColor, getAverage, timeConverter, getKeyResults}) => {
   const [krData, setKrData] = useState(keyResults);
-  const countAverage = () => (krData.length === 0) ? 0 : krData.reduce((prev, curr) => prev + (curr.currentAchievement/curr.target), 0) / krData.length;
+  const countAverage = (krData.length === 0) ? 0 : krData.reduce((prev, curr) => prev + (curr.currentAchievement/curr.target), 0) / krData.length;
   
   const deleteKeyResult = (id) => {
     console.log('this id: ' + id);
@@ -26,7 +26,7 @@ const KeyResults = ({keyResults, toggle, getColor, getAverage, timeConverter, ge
     getAverage(countAverage);
     getKeyResults(krData);
     // console.log(krData);
-  }, [getAverage, countAverage, krData]);
+  }, [getAverage, countAverage, krData, getKeyResults]);
   
 
   return (

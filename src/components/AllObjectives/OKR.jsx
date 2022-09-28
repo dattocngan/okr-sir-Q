@@ -25,7 +25,7 @@ const OKR = ({OkrData}) => {
     setNewOkr({ ...objective, keyResults: keyResults });
   }, [objective, keyResults]);
 
-  useEffect(() => console.log(newOkr), [newOkr.keyResults])
+  useEffect(() => console.log(newOkr), [newOkr])
   const timeConverter = (data) => {
     let date = new Date(data);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];

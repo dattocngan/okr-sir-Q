@@ -15,7 +15,7 @@ const CreateObjective = ({ getObjectiveData }) => {
             goalType: goalType,
             status: status,
         });
-    }, [objective, dueDate, goalType, reason, status]);
+    }, [objective, dueDate, goalType, reason, status, getObjectiveData]);
 
     return (
       <div id="objective">

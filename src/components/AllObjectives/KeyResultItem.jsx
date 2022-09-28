@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import avatar from "../../assets/images/img.jpg";
 import ContentEditable from 'react-contenteditable';
 

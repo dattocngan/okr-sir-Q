@@ -34,7 +34,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
       dueDate: dueDate,
       unit: currentUnit,
     });
-  }, [name, target, dueDate, currentUnit]);
+  }, [name, target, dueDate, currentUnit, id, updateKeyresult]);
 
   const switchUnitType = (unitType) => setCurrentUnit(unitType);
 

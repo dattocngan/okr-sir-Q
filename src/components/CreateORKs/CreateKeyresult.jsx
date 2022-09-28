@@ -14,7 +14,7 @@ const CreateKeyresult = ({ getKeyresultData }) => {
 
   useEffect(() => {
     getKeyresultData(keyresults);
-  }, [keyresults]);
+  }, [keyresults, getKeyresultData]);
 
   const addKeyresult = () => {
     setKeyresults([
