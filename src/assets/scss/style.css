@@ -53,4 +53,9 @@ main .key-result i {
 }
 main .key-result:hover i {
   opacity: 1;
+}
+
+div[contenteditable=true] {
+  font-family: sans-serif;
+  border: 1px dashed #aaa;
 }/*# sourceMappingURL=style.css.map */

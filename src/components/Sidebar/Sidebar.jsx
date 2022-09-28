@@ -16,12 +16,6 @@ const sidebarData = [
     },
     {
         key: 3,
-        icon: 'info',
-        name: 'Detail',
-        url: '/detail'
-    },
-    {
-        key: 4,
         icon: 'logout',
         name: 'Logout',
         url: '/logout'

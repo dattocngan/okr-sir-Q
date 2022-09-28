@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import KeyresultItem from "./KeyresultItem";
 
-const CreateKeyresult = ({ getKeyresultData}) => {
+const CreateKeyresult = ({ getKeyresultData }) => {
   const [keyresults, setKeyresults] = useState([
     {
       id: 1,
@@ -12,34 +12,34 @@ const CreateKeyresult = ({ getKeyresultData}) => {
     },
   ]);
 
-
   useEffect(() => {
     getKeyresultData(keyresults);
   }, [keyresults]);
 
   const addKeyresult = () => {
     setKeyresults([
-        ...keyresults, 
-        {
-            id: keyresults.length + 1,
-            name:'',
-            target:'',
-            dueDate:'',
-            unit:''
-        }
-    ])
+      ...keyresults,
+      {
+        id: keyresults.length + 1,
+        name: "",
+        target: "",
+        dueDate: "",
+        unit: "",
+      },
+    ]);
   };
 
   const deleteKeyresult = (id) => {
-    setKeyresults(keyresults.filter((keyresult) => keyresult.id !== id))
+    setKeyresults(keyresults.filter((keyresult) => keyresult.id !== id));
   };
-  
+
   const updateKeyresult = (id, newValue) => {
-    setKeyresults(keyresults.map(keyresult => {
-        if (keyresult.id === id) 
-            return newValue;
-        else    return keyresult;
-    }))
+    setKeyresults(
+      keyresults.map((keyresult) => {
+        if (keyresult.id === id) return newValue;
+        else return keyresult;
+      })
+    );
   };
 
   return (
@@ -70,10 +70,9 @@ const CreateKeyresult = ({ getKeyresultData}) => {
         data-mdb-ripple-unbound="true"
         type="button"
         id="add-keyresult"
-        className="btn btn-floating btn-outline-primary btn-floating material-icons mb-4 ms-5 ripple-surface-primary"
+        className="material-icons btn btn-outline-primary btn-floating mb-4 ms-5 ripple-surface-primary"
         onClick={addKeyresult}
-      >
-        add
+      > add
       </button>
     </div>
   );

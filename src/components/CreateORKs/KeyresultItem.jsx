@@ -29,7 +29,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
     updateKeyresult(id, {
       id: id,
       name: name,
-      achieved: 0,
+      currentAchievement: 0,
       target: target,
       dueDate: dueDate,
       unit: currentUnit,

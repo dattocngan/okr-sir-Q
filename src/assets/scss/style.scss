@@ -5,7 +5,6 @@
     margin: 0;
     text-decoration: none;
     box-sizing: border-box;
-    // color: $color-text;
 }
 
 aside .nav {
@@ -53,4 +52,9 @@ main {
     .key-result:hover i {
         opacity: 1;
     }
+}
+
+div[contenteditable="true"] {
+    font-family: sans-serif;
+    border: 1px dashed #aaa;
 }

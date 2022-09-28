@@ -14,7 +14,7 @@ const CreateOKR = () => {
     }
 
     setWasValidated("was-validated");
-    setNewOkr({ ...objectiveData, keyresultData: keyresultData });
+    setNewOkr({ ...objectiveData, keyResult: keyresultData });
   };
 
   useEffect(() => console.log(newOkr), [newOkr]);
