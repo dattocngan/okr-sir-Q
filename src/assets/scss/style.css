@@ -58,4 +58,5 @@ main .key-result:hover i {
 div[contenteditable=true] {
   font-family: sans-serif;
   border: 1px dashed #aaa;
+  outline: none;
 }/*# sourceMappingURL=style.css.map */

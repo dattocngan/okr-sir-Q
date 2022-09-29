@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import avatar from '../../assets/images/img.jpg';
 
 const Objective = ({ content, deadlineAt, type, getToggle, getColor, average }) => {
-  let [toggle, setToggle ] = useState('');
+  let [toggle, setToggle ] = useState('d-none');
   const color = getColor(average);
   
 
@@ -22,10 +22,10 @@ const Objective = ({ content, deadlineAt, type, getToggle, getColor, average }) 
     <div className="d-flex align-items-center fw-bold px-3 py-2 rounded-pill shadow-custom">
       <div className="d-flex align-items-center me-3">
         <button
-          className="hide btn p-0 border-0 me-2 material-icons bg-primary rounded-circle text-white"
+          className=" btn p-0 border-0 me-2 material-icons bg-primary rounded-circle text-white"
           onClick={shortcut}
         >
-          remove
+          expand_more
         </button>
         <img
           src={avatar}

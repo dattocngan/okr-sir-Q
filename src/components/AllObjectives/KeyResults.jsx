@@ -7,15 +7,12 @@ const KeyResults = ({keyResults, toggle, getColor, getAverage, timeConverter, ge
   
   const deleteKeyResult = (id) => {
     console.log('this id: ' + id);
-    krData.forEach(element => {
-      console.log(element.id);
-    });
     setKrData(krData.filter((kr) => kr.id !== id));
   }
   
   const updateKeyResult = (id, newValue) => {
     setKrData(
-      keyResults.map((kr) => {
+      krData.map((kr) => {
         if (kr.id === id) return newValue;
         return kr;
       })
@@ -26,22 +23,28 @@ const KeyResults = ({keyResults, toggle, getColor, getAverage, timeConverter, ge
     getAverage(countAverage);
     getKeyResults(krData);
     // console.log(krData);
+    // krData.forEach((element) => {
+    //   console.log(element.id);
+    // });
   }, [getAverage, countAverage, krData, getKeyResults]);
   
 
   return (
-    <ul className={`ms-lg-5 ps-1 border-lg-start list-unstyled ${toggle}`}>
-      {keyResults.map((kr, index) => (
-        <KeyResultItem
-          deleteKeyResult={deleteKeyResult}
-          updateKeyResult={updateKeyResult}
-          data={kr}
-          timeConverter={timeConverter}
-          key={index}
-          getColor={getColor}
-        />
-      ))}
-    </ul>
+    <>
+      <ul className={`mx-lg-5 border-lg-start list-unstyled ${toggle}`}>
+        {krData.map((kr, index) => (
+          <KeyResultItem
+            deleteKeyResult={deleteKeyResult}
+            updateKeyResult={updateKeyResult}
+            data={kr}
+            timeConverter={timeConverter}
+            key={index}
+            getColor={getColor}
+          />
+        ))}
+      <button type='submit' className='btn btn-sm '>Edit</button>
+      </ul>
+    </>
   );
 }
 

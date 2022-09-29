@@ -2,9 +2,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import KeyresultItem from "./KeyresultItem";
 
 const CreateKeyresult = ({ getKeyresultData }) => {
+  const [index, setIndex] = useState(0);
   const [keyresults, setKeyresults] = useState([
     {
-      id: 1,
+      id: index,
       name: "",
       target: "",
       dueDate: "",
@@ -20,13 +21,14 @@ const CreateKeyresult = ({ getKeyresultData }) => {
     setKeyresults([
       ...keyresults,
       {
-        id: keyresults.length + 1,
+        id: index + 1,
         name: "",
         target: "",
         dueDate: "",
         unit: "",
       },
     ]);
+    setIndex(index + 1);
   };
 
   const deleteKeyresult = (id) => {

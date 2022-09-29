@@ -1,7 +1,17 @@
 import React from "react";
 
 const UnitInput = ({ id, value }) => {
-  return (
+  return value === "percent" ? (
+    <input
+      type="radio"
+      className="btn-check "
+      name={`btnradio-${id}`}
+      value={value}
+      id={`${value}-${id}`}
+      autoComplete="off"
+      defaultChecked
+    />
+  ) : (
     <input
       type="radio"
       className="btn-check "
