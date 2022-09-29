@@ -42,7 +42,7 @@ const KeyResults = ({keyResults, toggle, getColor, getAverage, timeConverter, ge
             getColor={getColor}
           />
         ))}
-      <button type='submit' className='btn btn-sm '>Edit</button>
+      {/* <button type='submit' className='btn btn-sm '>Edit</button> */}
       </ul>
     </>
   );
