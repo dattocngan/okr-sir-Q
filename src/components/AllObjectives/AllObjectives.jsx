@@ -22,6 +22,16 @@ const data = [
         deadlineAt: "2022-08-29T16:58:16Z",
       },
       {
+        id: "3be28be6-4e27-4d17-a1a7-70207e743ef13",
+        status: "NOT_STARTED",
+        objectiveId: "0c9c70d5-25c0-4bb1-ade7-84d96905ce85",
+        content: "Đạt học bổng",
+        target: 10,
+        currentAchievement: 6,
+        unit: "MONEY",
+        deadlineAt: "2022-08-29T16:58:16Z",
+      },
+      {
         id: "46d0a645-d57b-4de4-836d-67a476bd8c34",
         status: "NOT_STARTED",
         objectiveId: "0c9c70d5-25c0-4bb1-ade7-84d96905ce85",
