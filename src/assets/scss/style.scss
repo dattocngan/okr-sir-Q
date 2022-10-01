@@ -1,66 +1,90 @@
-@import "variables";
+@import 'variables';
 
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
 }
 
 aside .nav {
-        a {
-            transition: 0.3s linear;
-            color: $color-text;
+  a {
+    transition: 0.3s linear;
+    color: $color-text;
 
-            &:hover {
-                color: $color-primary;
-            }
-        }
+    &:hover {
+      color: $color-primary;
+    }
+  }
 }
 
 .shadow-custom {
-    box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
 }
 .h-3rem {
-    height: 3rem;
+  height: 3rem;
 }
 .w-3rem {
-    width: 3rem;
+  width: 3rem;
 }
 .h-100vh {
-    height: 100vh;
+  height: 100vh;
+}
+.h-min100vh {
+  min-height: 100vh;
 }
 .h-min100vh {
     min-height: 100vh;
 }
 .square-2\.5rem {
-    width: 2.5rem;
-    height: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 .square-2rem {
-    width: 2rem;
-    height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 .square-1rem {
-    width: 1rem;
-    height: 1rem;
+  width: 1rem;
+  height: 1rem;
 }
 main {
-    background-color: $color-background;
-    
-    .key-result i {
-        opacity: 0;
-        transition: .3s linear;
-    }
-    .key-result:hover i {
-        opacity: 1;
-    }
+  background-color: $color-background;
+
+  .key-result i {
+    opacity: 0;
+    transition: 0.3s linear;
+  }
+  .key-result:hover i {
+    opacity: 1;
+  }
 }
 
-div[contenteditable="true"] {
-    font-family: sans-serif;
-    border: 1px dashed #aaa;
-    outline: none;
+div[contenteditable='true'] {
+  font-family: sans-serif;
+  border: 1px dashed #aaa;
+  outline: none;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+// Login Page
+.form-wrapper {
+  width: 35vw !important;
+  min-width: 400px;
+  height: 100%;
+}
+
+.form-card {
+  background-color: #aaa;
 }
 .vertical-text {
     writing-mode: vertical-rl;

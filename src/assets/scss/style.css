@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+.app-container {
+  width: 100vw;
+  height: 100vh;
+}
+
 aside .nav a {
   transition: 0.3s linear;
   color: #3d3c3d;
@@ -69,4 +74,14 @@ div[contenteditable=true] {
   -ms-writing-mode: tb-rl;
       writing-mode: vertical-rl;
   text-orientation: mixed;
+}
+
+.form-wrapper {
+  width: 35vw !important;
+  min-width: 400px;
+  height: 100%;
+}
+
+.form-card {
+  background-color: #aaa;
 }/*# sourceMappingURL=style.css.map */
