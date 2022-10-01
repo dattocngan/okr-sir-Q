@@ -40,7 +40,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
 
   return (
     <div className="row g-3 mb-4 key-result align-items-stretch">
-      <div className="col col-12 col-md-4">
+      <div className="col col-12 col-md-4 flex-md-fill">
         {isDefault && <p className="fw-bold">Key results:</p>}
         <input
           className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
@@ -106,10 +106,9 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
         </div>
       </div>
       <i
-        className="col-auto text-center material-icons text-black-50 ripple-surface-dark align-self-center btn shadow-0 p-0"
+        className={`col-auto text-center material-icons text-black-50 ripple-surface-dark align-self-center btn shadow-0 p-0 ${isDefault ? 'invisible' : 'visible'}`}
         onClick={() => deleteKeyresult(id)}
-      >
-        {isDefault ? "" : "close"}
+      > close
       </i>
     </div>
   );

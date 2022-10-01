@@ -8,7 +8,7 @@ function App() {
     <div className="container-fluid px-0">
       <div className="row g-0">
         <Sidebar />
-        <main className="col p-3 py-5 h-100vh">
+        <main className="col p-3 ps-lg-5 py-5 h-min100vh">
           <Routes>
             <Route path="/" element={<AllObjectives />} />
             <Route path="/all_objectives" element={<Navigate to="/" />} />

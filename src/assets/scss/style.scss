@@ -30,6 +30,9 @@ aside .nav {
 .h-100vh {
     height: 100vh;
 }
+.h-min100vh {
+    min-height: 100vh;
+}
 .square-2\.5rem {
     width: 2.5rem;
     height: 2.5rem;
@@ -59,3 +62,8 @@ div[contenteditable="true"] {
     border: 1px dashed #aaa;
     outline: none;
 }
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+

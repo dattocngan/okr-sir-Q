@@ -44,6 +44,11 @@ const Objective = ({ content, deadlineAt, type, getToggle, getColor, average }) 
           <div className={`rounded-circle bg-${color} square-1rem`}></div>
         </div>
       </div>
+      <button
+        className="btn btn-sm btn-rounded btn-outline-secondary ripple-surface-primary"
+      >
+        edit
+      </button>
     </div>
   );
 };

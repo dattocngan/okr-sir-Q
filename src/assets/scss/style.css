@@ -29,6 +29,10 @@ aside .nav a:hover {
   height: 100vh;
 }
 
+.h-min100vh {
+  min-height: 100vh;
+}
+
 .square-2\.5rem {
   width: 2.5rem;
   height: 2.5rem;
@@ -59,4 +63,10 @@ div[contenteditable=true] {
   font-family: sans-serif;
   border: 1px dashed #aaa;
   outline: none;
+}
+
+.vertical-text {
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  text-orientation: mixed;
 }/*# sourceMappingURL=style.css.map */
