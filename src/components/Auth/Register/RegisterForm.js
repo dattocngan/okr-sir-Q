@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MDBValidation, MDBValidationItem, MDBInput } from 'mdb-react-ui-kit';
+import { register } from '../../../api/http';
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
-  const submitHandler = (e) => {
-    if (e.target.checkValidity()) {
-      navigate('/auth/login');
-    }
-  };
   const [registerInput, setRegisterInput] = useState({
     fullname: '',
     username: '',
     password: '',
   });
 
+  const navigate = useNavigate();
+
+  const submitHandler = (e) => {
+    if (e.target.checkValidity()) {
+      register({
+        name: registerInput.fullname,
+        username: registerInput.username,
+        password: registerInput.password,
+      }).then((response) => {
+        alert(response.data.message);
+        if (response.status === 201) {
+          navigate('/auth/login');
+        }
+      });
+    }
+  };
+
   const registerInputHandler = (e) => {
-    console.log(registerInput);
     setRegisterInput((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });

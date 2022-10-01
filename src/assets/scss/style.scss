@@ -7,11 +7,6 @@
   box-sizing: border-box;
 }
 
-.app-container {
-  width: 100vw;
-  height: 100vh;
-}
-
 aside .nav {
   a {
     transition: 0.3s linear;
@@ -39,7 +34,7 @@ aside .nav {
   min-height: 100vh;
 }
 .h-min100vh {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 .square-2\.5rem {
   width: 2.5rem;
@@ -80,6 +75,7 @@ div[contenteditable='true'] {
 .form-wrapper {
   width: 35vw !important;
   min-width: 400px;
+  max-width: 600px;
   height: 100%;
 }
 
@@ -87,7 +83,6 @@ div[contenteditable='true'] {
   background-color: #aaa;
 }
 .vertical-text {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
-

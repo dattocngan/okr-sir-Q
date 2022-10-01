@@ -6,13 +6,13 @@ const sidebarData = [
     key: 1,
     icon: 'add_circle',
     name: 'Create OKR',
-    url: '/create_okr',
+    url: '/objectives/create_okr',
   },
   {
     key: 2,
     icon: 'emoji_objects',
     name: 'All objectives',
-    url: '/all_objectives',
+    url: '/',
   },
   {
     key: 3,

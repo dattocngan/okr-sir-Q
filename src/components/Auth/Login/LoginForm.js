@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MDBValidation, MDBValidationItem, MDBInput } from 'mdb-react-ui-kit';
 
 import AuthContext from '../../../store/Auth/AuthContext';
+import { login, setHeader } from '../../../api/http';
 
 const LoginForm = () => {
   const [loginInput, setLoginInput] = useState({
@@ -13,7 +14,14 @@ const LoginForm = () => {
 
   const submitHandler = (e) => {
     if (e.target.checkValidity()) {
-      setIsAuth(true);
+      login(loginInput).then((response) => {
+        if (response.status === 200) {
+          setHeader(response.data.token);
+          setIsAuth(true);
+        } else {
+          alert(response.data.message);
+        }
+      });
     }
   };
 

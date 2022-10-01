@@ -1,11 +1,14 @@
 // import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useJwt } from 'react-jwt';
+
+import { setHeader } from './api/http';
 import AllObjectives from './components/AllObjectives/AllObjectives';
 import Login from './components/Auth/Login/Login';
 import Register from './components/Auth/Register/Register';
 import CreateOKR from './components/CreateORKs/CreateOKR';
-import EditORK from './components/EditORK/EditORK';
+import EditOKR from './components/EditOKR/EditOKR';
 import Sidebar from './components/Sidebar/Sidebar';
 
 import AuthContext from './store/Auth/AuthContext';
@@ -22,10 +25,21 @@ const RouteContent = ({ children }) => (
 );
 
 function App() {
-  const [isAuth] = useContext(AuthContext);
+  const [isAuth, setIsAuth] = useContext(AuthContext);
+  const token = localStorage.getItem('token');
+  const { isExpired } = useJwt(token);
+
+  useEffect(() => {
+    if (token && !isExpired) {
+      setHeader(token);
+      setIsAuth(true);
+    } else {
+      setIsAuth(false);
+    }
+  }, [token, isExpired]);
   return (
     <div className="container-fluid px-0">
-      <div className="row g-0 app-container">
+      <div className="row g-0 h-100vh">
         <Routes>
           {!isAuth && (
             <>
@@ -49,7 +63,10 @@ function App() {
                   element={<RouteContent children={<CreateOKR />} />}
                 />
                 <Route path="*" element={<Navigate to="" />} />
-                <Route path="edit/:objectiveId" element={<EditORK />} />
+                <Route
+                  path="edit/:objectiveId"
+                  element={<RouteContent children={<EditOKR />} />}
+                />
               </Route>
               <Route path="*" element={<Navigate to="/objectives" />} />
             </>

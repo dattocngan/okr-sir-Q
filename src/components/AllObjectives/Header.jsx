@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import avatar from "../../assets/images/img.jpg";
+import avatar from '../../assets/images/img.jpg';
 
 const Header = () => {
   return (
     <header className="d-flex align-items-center justify-content-between pb-sm-5 pb-3">
       <h2 className="">Objectives Explorer</h2>
-      <Link to={"/create_okr"}>
+      <Link to={'/objectives/create_okr'}>
         <button className="d-flex align-items-center btn py-2 px-3 btn-primary border-0 rounded-pill">
           <i className="material-icons text-white">add</i>
           <span className="text-white d-none d-xl-block">
@@ -30,6 +30,6 @@ const Header = () => {
       </div>
     </header>
   );
-}
+};
 
-export default Header
+export default Header;

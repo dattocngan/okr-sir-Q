@@ -5,11 +5,6 @@
   box-sizing: border-box;
 }
 
-.app-container {
-  width: 100vw;
-  height: 100vh;
-}
-
 aside .nav a {
   transition: 0.3s linear;
   color: #3d3c3d;
@@ -32,6 +27,10 @@ aside .nav a:hover {
 
 .h-100vh {
   height: 100vh;
+}
+
+.h-min100vh {
+  min-height: 100vh;
 }
 
 .h-min100vh {
@@ -79,9 +78,16 @@ div[contenteditable=true] {
 .form-wrapper {
   width: 35vw !important;
   min-width: 400px;
+  max-width: 600px;
   height: 100%;
 }
 
 .form-card {
   background-color: #aaa;
+}
+
+.vertical-text {
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  text-orientation: mixed;
 }/*# sourceMappingURL=style.css.map */
