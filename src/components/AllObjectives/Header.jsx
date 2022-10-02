@@ -23,10 +23,26 @@ const Header = () => {
           className="h-3rem w-3rem object-cover rounded-circle me-3"
           alt=""
         />
-        <strong className="justify-content-center d-none d-xxl-flex">
-          Aibles
-        </strong>
-        <i className="ms-3 material-icons">expand_more</i>
+        <div className="justify-content-center d-none d-xxl-flex">
+          Xin chào Nguyễn Tiến Đạt
+        </div>
+        <div className="dropdown ms-3">
+          <button
+            className="btn shadow-0 dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+          <i className="material-icons">expand_more</i>
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><Link className="dropdown-item" to={'/'}>Action</Link></li>
+            <li><Link className="dropdown-item" to={'/'}>Another action</Link></li>
+            <li><Link className="dropdown-item" to={'/'}>Something else here</Link></li>
+          </ul>
+        </div>
+        {/* <i className="ms-3 material-icons">expand_more</i> */}
       </div>
     </header>
   );

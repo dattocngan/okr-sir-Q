@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import KeyResultItem from './KeyResultItem';
 
 const KeyResults = ({keyResults, toggle, getColor, getAverage, timeConverter}) => {
   const countAverage = (keyResults.length === 0) ? 0 : keyResults.reduce((prev, curr) => prev + (curr.currentAchievement/curr.target), 0) / keyResults.length;
-  getAverage(countAverage);
 
+  useEffect(() => getAverage(countAverage), [getAverage, countAverage]);
+  
   return (
     <>
       <ul className={`mx-lg-5 border-lg-start list-unstyled ${toggle}`}>
