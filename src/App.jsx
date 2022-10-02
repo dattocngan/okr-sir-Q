@@ -12,6 +12,7 @@ import EditOKR from './components/EditOKR/EditOKR';
 import Sidebar from './components/Sidebar/Sidebar';
 
 import AuthContext from './store/Auth/AuthContext';
+import EditProfile from './components/Auth/Profile/EditProfile';
 
 const MainContainer = ({ children }) => {
   return <main className="col p-3 ps-lg-5 py-5 h-min100vh">{children}</main>;
@@ -66,6 +67,12 @@ function App() {
                 <Route
                   path="edit/:objectiveId"
                   element={<RouteContent children={<EditOKR />} />}
+                />
+              </Route>
+              <Route path="auth">
+                <Route
+                  path="user"
+                  element={<RouteContent children={<EditProfile />} />}
                 />
               </Route>
               <Route path="*" element={<Navigate to="/objectives" />} />

@@ -55,3 +55,23 @@ export const getObjective = async (id) => {
     return err.response;
   }
 }
+
+// Edit profile
+
+export const getProfile = async () => {
+  try {
+    const response = await axios.get('/auth/user');
+    return response;
+  } catch (err) {
+    return err.response;
+  }
+}
+
+export const editProfile = async (data) => {
+  try {
+    const response = await axios.put('/auth/user', data);
+    return response;
+  } catch (err) {
+    return err.response;
+  }
+}
