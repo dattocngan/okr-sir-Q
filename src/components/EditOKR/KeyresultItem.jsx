@@ -19,11 +19,11 @@ const units = [
     unitType: "bin",
   },
 ];
-const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
-  const [currentUnit, setCurrentUnit] = useState("PERCENT");
-  const [name, setName] = useState("");
-  const [target, setTarget] = useState("");
-  const [dueDate, setDueDate] = useState("");
+const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult, defaultContent, defaultTarget, defaultCurrentAchievement, defaultUnit, defaultDeadlineAt }) => {
+  const [currentUnit, setCurrentUnit] = useState(defaultUnit);
+  const [name, setName] = useState(defaultContent);
+  const [target, setTarget] = useState(defaultTarget);
+  const [dueDate, setDueDate] = useState(defaultDeadlineAt);
 
   useEffect(() => {
     updateKeyresult(id, {
@@ -87,7 +87,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
           placeholder="..."
           required
           onChange={(e) => setDueDate(e.target.value)}
-          value={dueDate}
+          value={dueDate.split("T")[0]}
         />
         <div className="invalid-feedback ms-3">Due date is required</div>
       </div>
@@ -101,14 +101,19 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult }) => {
               unitType={unit.unitType}
               value={unit.value}
               switchUnitType={switchUnitType}
+              currentUnit={currentUnit}
             />
           ))}
         </div>
       </div>
       <i
-        className={`col-auto text-center material-icons text-black-50 ripple-surface-dark align-self-center btn shadow-0 p-0 ${isDefault ? 'invisible' : 'visible'}`}
+        className={`col-auto text-center material-icons text-black-50 ripple-surface-dark align-self-center btn shadow-0 p-0 ${
+          isDefault ? "invisible" : "visible"
+        }`}
         onClick={() => deleteKeyresult(id)}
-      > close
+      >
+        {" "}
+        close
       </i>
     </div>
   );

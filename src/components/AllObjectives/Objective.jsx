@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import avatar from '../../assets/images/img.jpg';
 
-const Objective = ({ content, deadlineAt, type, getToggle, getColor, average }) => {
+const Objective = ({ id, content, deadlineAt, type, getToggle, getColor, average }) => {
   let [toggle, setToggle ] = useState('d-none');
   const color = getColor(average);
   
@@ -44,11 +45,13 @@ const Objective = ({ content, deadlineAt, type, getToggle, getColor, average }) 
           <div className={`rounded-circle bg-${color} square-1rem`}></div>
         </div>
       </div>
-      <button
-        className="btn btn-sm btn-rounded btn-outline-secondary ripple-surface-primary"
-      >
-        edit
-      </button>
+      <Link to={`/objectives/edit/${id}`}>
+        <button
+          className="btn btn-sm btn-rounded btn-outline-secondary ripple-surface-primary"
+        >
+          edit
+        </button>
+      </Link>
     </div>
   );
 };

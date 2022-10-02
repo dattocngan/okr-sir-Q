@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import avatar from "../../assets/images/img.jpg";
 
-const CreateObjective = ({ getObjectiveData }) => {
-    const [objective, setObjective] = useState("");
-    const [dueDate, setDueDate] = useState("");
-    const [goalType, setGoalType] = useState("");
-    const [reason, setReason] = useState("");
-    const [status, setStatus] = useState("");
-
+const CreateObjective = ({ getObjectiveData, defaultContent, defaultDeadlineAt, defaultType, defaultReason, defaultStatus }) => {
+    const [objective, setObjective] = useState(defaultContent);
+    const [dueDate, setDueDate] = useState(defaultDeadlineAt);
+    const [goalType, setGoalType] = useState(defaultType);
+    const [reason, setReason] = useState(defaultReason);
+    const [status, setStatus] = useState(defaultStatus);
+    
     useEffect(() => {
         getObjectiveData({
           content: objective,
@@ -17,6 +17,14 @@ const CreateObjective = ({ getObjectiveData }) => {
           status: status,
         });
     }, [objective, dueDate, goalType, reason, status, getObjectiveData]);
+
+    useEffect(() => {
+      setDueDate(defaultDeadlineAt.split("T")[0]);
+      setObjective(defaultContent);
+      setGoalType(defaultType);
+      setReason(defaultReason);
+      setStatus(defaultStatus);
+    }, [defaultContent, defaultDeadlineAt, defaultReason, defaultStatus, defaultType]);
 
     return (
       <div id="objective">

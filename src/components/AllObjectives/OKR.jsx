@@ -6,15 +6,15 @@ const OKR = ({OkrData}) => {
   let [toggleKeyResult, setToggleKeyResult] = useState('');
   let [average, setAverage] = useState(0);
   let [objective, setObjective] = useState({
-    id: OkrData.id,
+    id: OkrData._id,
     type: OkrData.type,
     content: OkrData.content,
     reason: OkrData.reason,
     status: OkrData.status,
     deadlineAt: OkrData.deadlineAt,
   });
-  let [keyResults, setKeyResults] = useState([...OkrData.keyResult]);
-  let [newOkr, setNewOkr] = useState({ ...objective, keyResults });
+  let [keyResults, setKeyResults] = useState([...OkrData.keyResults]);
+  // let [newOkr, setNewOkr] = useState({ ...objective, keyResults });
 
   const getToggle = useCallback((data) => setToggleKeyResult(data), []);
   const getKeyResults = useCallback((data) => setKeyResults(data), []);
@@ -22,10 +22,10 @@ const OKR = ({OkrData}) => {
   const getAverage = useCallback((data) => setAverage(data), []);
 
   useEffect(() => {
-    setNewOkr({ ...objective, keyResults: keyResults });
+    // setNewOkr({ ...objective, keyResults: keyResults });
   }, [objective, keyResults]);
 
-  useEffect(() => console.log(newOkr), [newOkr])
+  // useEffect(() => console.log(newOkr), [newOkr])
   const timeConverter = (data) => {
     let date = new Date(data);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -41,6 +41,7 @@ const OKR = ({OkrData}) => {
   return (
     <div className="mb-3">
       <Objective
+        id={objective.id}
         content={objective.content}
         deadlineAt={timeConverter(objective.deadlineAt)}
         type={objective.type}
