@@ -36,7 +36,7 @@ export const getAllObjectives = async () => {
   } catch (err) {
     return err.response;
   }
-}
+};
 
 export const createObjectives = async (data) => {
   try {
@@ -45,7 +45,7 @@ export const createObjectives = async (data) => {
   } catch (err) {
     return err.response;
   }
-}
+};
 
 export const getObjective = async (id) => {
   try {
@@ -54,7 +54,16 @@ export const getObjective = async (id) => {
   } catch (err) {
     return err.response;
   }
-}
+};
+
+export const updateObjective = async (id, data) => {
+  try {
+    const response = await axios.put(`objectives/${id}`, data);
+    return response;
+  } catch (err) {
+    return err.response;
+  }
+};
 
 // Edit profile
 
@@ -65,7 +74,7 @@ export const getProfile = async () => {
   } catch (err) {
     return err.response;
   }
-}
+};
 
 export const editProfile = async (data) => {
   try {
@@ -74,4 +83,4 @@ export const editProfile = async (data) => {
   } catch (err) {
     return err.response;
   }
-}
+};

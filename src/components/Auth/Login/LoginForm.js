@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MDBValidation, MDBValidationItem, MDBInput } from 'mdb-react-ui-kit';
+import Swal from 'sweetalert2';
 
 import AuthContext from '../../../store/Auth/AuthContext';
 import { login, setHeader } from '../../../api/http';
@@ -19,7 +20,11 @@ const LoginForm = () => {
           setHeader(response.data.token);
           setIsAuth(true);
         } else {
-          alert(response.data.message);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: response.data.message,
+          });
         }
       });
     }

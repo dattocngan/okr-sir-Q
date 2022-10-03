@@ -1,33 +1,46 @@
-import React, { useEffect, useState } from "react";
-import KeyresultItemUnit from "./KeyresultItemUnit";
+import React, { useState, useEffect } from 'react';
+import KeyresultItemUnit from './KeyresultItemUnit';
 
 const units = [
   {
-    value: "percent",
-    unitType: "%",
+    value: 'percent',
+    unitType: '%',
   },
   {
-    value: "money",
-    unitType: "$",
+    value: 'money',
+    unitType: '$',
   },
   {
-    value: "number",
-    unitType: "num.",
+    value: 'number',
+    unitType: 'num.',
   },
   {
-    value: "binary",
-    unitType: "bin",
+    value: 'binary',
+    unitType: 'bin',
   },
 ];
-const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult, defaultContent, defaultTarget, defaultCurrentAchievement, defaultUnit, defaultDeadlineAt }) => {
-  const [currentUnit, setCurrentUnit] = useState(defaultUnit);
-  const [name, setName] = useState(defaultContent);
-  const [target, setTarget] = useState(defaultTarget);
-  const [dueDate, setDueDate] = useState(defaultDeadlineAt);
+const KeyresultItem = ({
+  id,
+  isDefault,
+  deleteKeyresult,
+  defaultContent,
+  defaultTarget,
+  updateKeyresult,
+  defaultCurrentAchievement,
+  defaultUnit,
+  defaultDeadlineAt,
+}) => {
+  const [currentUnit, setCurrentUnit] = useState(
+    defaultUnit ? defaultUnit : ''
+  );
+  const [name, setName] = useState(defaultContent ? defaultContent : '');
+  const [target, setTarget] = useState(defaultTarget ? defaultTarget : '');
+  const [dueDate, setDueDate] = useState(
+    defaultDeadlineAt ? defaultDeadlineAt : ''
+  );
 
   useEffect(() => {
     updateKeyresult(id, {
-      id: id,
       content: name,
       currentAchievement: 0,
       target: target,
@@ -54,7 +67,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult, defaul
       </div>
       <div className="col col-md-2">
         {isDefault && <p className="fw-bold">Target:</p>}
-        {currentUnit === "binary" ? (
+        {currentUnit === 'binary' ? (
           <div className="form-check form-switch align-items-center">
             <input
               className="form-check-input"
@@ -87,7 +100,7 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult, defaul
           placeholder="..."
           required
           onChange={(e) => setDueDate(e.target.value)}
-          value={dueDate.split("T")[0]}
+          value={dueDate.split('T')[0]}
         />
         <div className="invalid-feedback ms-3">Due date is required</div>
       </div>
@@ -108,11 +121,11 @@ const KeyresultItem = ({ id, isDefault, deleteKeyresult, updateKeyresult, defaul
       </div>
       <i
         className={`col-auto text-center material-icons text-black-50 ripple-surface-dark align-self-center btn shadow-0 p-0 ${
-          isDefault ? "invisible" : "visible"
+          isDefault ? 'invisible' : 'visible'
         }`}
         onClick={() => deleteKeyresult(id)}
       >
-        {" "}
+        {' '}
         close
       </i>
     </div>
