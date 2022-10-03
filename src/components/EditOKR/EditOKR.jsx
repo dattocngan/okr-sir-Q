@@ -33,6 +33,7 @@ const EditOKR = () => {
       setIsLoading(false);
       return;
     }
+    console.log(keyresultData);
     updateObjective(objectiveId, {
       ...objectiveData,
       keyResults: keyresultData,

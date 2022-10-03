@@ -34,6 +34,9 @@ const KeyresultItem = ({
     defaultUnit ? defaultUnit : ''
   );
   const [name, setName] = useState(defaultContent ? defaultContent : '');
+  const [currentAchievement, setCurrentAchievement] = useState(
+    defaultCurrentAchievement
+  );
   const [target, setTarget] = useState(defaultTarget ? defaultTarget : '');
   const [dueDate, setDueDate] = useState(
     defaultDeadlineAt ? defaultDeadlineAt : ''
@@ -42,18 +45,26 @@ const KeyresultItem = ({
   useEffect(() => {
     updateKeyresult(id, {
       content: name,
-      currentAchievement: 0,
+      currentAchievement: currentAchievement,
       target: target,
       deadlineAt: new Date(dueDate),
       unit: currentUnit.toUpperCase(),
     });
-  }, [name, target, dueDate, currentUnit, id, updateKeyresult]);
+  }, [
+    name,
+    target,
+    dueDate,
+    currentAchievement,
+    currentUnit,
+    id,
+    updateKeyresult,
+  ]);
 
   const switchUnitType = (unitType) => setCurrentUnit(unitType);
 
   return (
     <div className="row g-3 mb-4 key-result align-items-stretch">
-      <div className="col col-12 col-md-4 flex-md-fill">
+      <div className="col col-12 col-md-2 flex-md-fill">
         {isDefault && <p className="fw-bold">Key results:</p>}
         <input
           className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
@@ -62,6 +73,18 @@ const KeyresultItem = ({
           required
           onChange={(e) => setName(e.target.value)}
           value={name}
+        />
+        <div className="invalid-feedback ms-3">Key result is required</div>
+      </div>
+      <div className="col col-12 col-md-2 flex-md-fill">
+        {isDefault && <p className="fw-bold">Current Achievement:</p>}
+        <input
+          className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
+          type="text"
+          placeholder="e.g. Start sales in new countries and hit $200,000 there"
+          required
+          onChange={(e) => setCurrentAchievement(e.target.value)}
+          value={currentAchievement}
         />
         <div className="invalid-feedback ms-3">Key result is required</div>
       </div>

@@ -31,6 +31,7 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
         if (val._id === id || val.id === id) {
           newKeyResults[index].content = newValue.content;
           newKeyResults[index].target = newValue.target;
+          newKeyResults[index].currentAchievement = newValue.currentAchievement;
           newKeyResults[index].deadlineAt = newValue.deadlineAt;
           newKeyResults[index].unit = newValue.unit;
           break;
