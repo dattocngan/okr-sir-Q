@@ -12,7 +12,7 @@ import EditOKR from './components/EditOKR/EditOKR';
 import Sidebar from './components/Sidebar/Sidebar';
 
 import AuthContext from './store/Auth/AuthContext';
-import EditProfile from './components/Auth/Profile/EditProfile';
+import EditProfile from './components/Profile/EditProfile';
 
 const MainContainer = ({ children }) => {
   return <main className="col p-3 ps-lg-5 py-5 h-min100vh">{children}</main>;
@@ -38,47 +38,47 @@ function App() {
       setIsAuth(false);
     }
   }, [token, isExpired]);
+
   return (
     <div className="container-fluid px-0">
       <div className="row g-0 h-100vh">
-        <Routes>
-          {!isAuth && (
-            <>
-              <Route path="auth">
-                <Route path="login" element={<Login />} />
-                <Route path="register" element={<Register />} />
-              </Route>
-              <Route path="*" element={<Navigate to="/auth/login" />} />
-            </>
-          )}
+        {isAuth !== null && (
+          <Routes>
+            {!isAuth && (
+              <>
+                <Route path="auth">
+                  <Route path="login" element={<Login />} />
+                  <Route path="register" element={<Register />} />
+                </Route>
+                <Route path="*" element={<Navigate to="/auth/login" />} />
+              </>
+            )}
 
-          {isAuth && (
-            <>
-              <Route path="objectives">
-                <Route
-                  path=""
-                  element={<RouteContent children={<AllObjectives />} />}
-                />
-                <Route
-                  path="create_okr"
-                  element={<RouteContent children={<CreateOKR />} />}
-                />
-                <Route path="*" element={<Navigate to="" />} />
-                <Route
-                  path="edit/:objectiveId"
-                  element={<RouteContent children={<EditOKR />} />}
-                />
-              </Route>
-              <Route path="auth">
+            {isAuth && (
+              <>
+                <Route path="objectives">
+                  <Route
+                    path=""
+                    element={<RouteContent children={<AllObjectives />} />}
+                  />
+                  <Route
+                    path="create_okr"
+                    element={<RouteContent children={<CreateOKR />} />}
+                  />
+                  <Route
+                    path="edit/:objectiveId"
+                    element={<RouteContent children={<EditOKR />} />}
+                  />
+                </Route>
                 <Route
                   path="user"
                   element={<RouteContent children={<EditProfile />} />}
                 />
-              </Route>
-              <Route path="*" element={<Navigate to="/objectives" />} />
-            </>
-          )}
-        </Routes>
+                <Route path="*" element={<Navigate to="/objectives" />} />
+              </>
+            )}
+          </Routes>
+        )}
       </div>
     </div>
   );

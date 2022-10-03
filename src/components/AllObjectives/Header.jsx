@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="d-flex align-items-center justify-content-between pb-sm-5 pb-3">
       <h2 className="">Objectives Explorer</h2>
-      <Link to={"/objectives/create_okr"}>
+      <Link to={'/objectives/create_okr'}>
         <button className="d-flex align-items-center btn py-2 px-3 btn-primary border-0 rounded-pill">
           <i className="material-icons text-white">add</i>
           <span className="text-white d-none d-xl-block">
@@ -38,17 +38,17 @@ const Header = () => {
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li>
-              <Link className="dropdown-item" to={"/auth/user"}>
+              <Link className="dropdown-item" to={'/user'}>
                 Edit profile
               </Link>
             </li>
             <li>
-              <Link className="dropdown-item" to={"/"}>
+              <Link className="dropdown-item" to={'/'}>
                 Another action
               </Link>
             </li>
             <li>
-              <Link className="dropdown-item" to={"/"}>
+              <Link className="dropdown-item" to={'/'}>
                 Something else here
               </Link>
             </li>

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   MDBValidationItem,
   MDBValidation,
   MDBInput,
   MDBBtn,
-} from "mdb-react-ui-kit";
-import { getProfile } from "../../../api/http";
+} from 'mdb-react-ui-kit';
+import { getProfile } from '../../api/http';
 
 const EditProfile = () => {
   const [user, setUser] = useState({});
