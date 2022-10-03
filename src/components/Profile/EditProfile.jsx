@@ -7,6 +7,7 @@ import {
   MDBTabs,
   MDBTabsItem,
   MDBTabsLink,
+  MDBBtn,
 } from 'mdb-react-ui-kit';
 import { editProfile, getProfile } from '../../api/http';
 import Modal from '../UI/Modal';
@@ -18,8 +19,12 @@ const EditProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [sex, setSex] = useState(0);
   const [dob, setDob] = useState('');
+  const [password, setPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const [isChangingPassword, setIsChangingPassword] = useState(false);
+  const [isEqual, setIsEqual] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,9 +38,14 @@ const EditProfile = () => {
       }
     });
   }, []);
+  
+  useEffect(() => {
+    setIsEqual(!newPassword.localeCompare(confirmPassword) ? true : false);
+  }, [newPassword, confirmPassword])
 
   const submitHandle = (e) => {
     e.preventDefault();
+    
     if (e.target.checkValidity()) {
       if (!isChangingPassword) {
         const newProfile = {
@@ -45,6 +55,15 @@ const EditProfile = () => {
           birthday: new Date(dob),
         };
         editProfile(newProfile).then((response) => console.log(response));
+      } 
+      else {
+        
+        if (isEqual) {
+          editProfile({
+            oldPassword: password,
+            newPassword: newPassword
+          }).then(response => console.log(response));
+        }
       }
     }
   };
@@ -126,31 +145,37 @@ const EditProfile = () => {
 
           {!isLoading && isChangingPassword && (
             <>
-              <MDBValidationItem
-                className="mb-5"
-                feedback="Please provide your old password."
-                invalid
-              >
-                <MDBInput label="Old Password" type="password" required />
-              </MDBValidationItem>
-              <MDBValidationItem
-                className="mb-5"
-                feedback="Please provide your new password."
-                invalid
-              >
-                <MDBInput label="New Password" type="password" required />
-              </MDBValidationItem>
-              <MDBValidationItem
-                className="mb-5"
-                feedback="Please confirm your new password."
-                invalid={false}
-              >
-                <MDBInput label="Confirm Password" type="password" required />
-              </MDBValidationItem>
+              <MDBInput
+                className="mb-4"
+                label="Old Password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                minLength={8}
+                required
+              />
+
+              <MDBInput
+               className="mb-4"
+                label="New Password"
+                type="password"
+                onChange={(e) => setNewPassword(e.target.value)}
+                minLength={8}
+                required
+              />
+              <div className="invalid-feedback">123</div>
+              <MDBInput
+                className="mb-4"
+                label="Confirm Password"
+                type="password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                minLength={8}
+                required
+              />
+              <span></span>
             </>
           )}
           <button className="btn btn-primary mt-4">
-            {isChangingPassword ? 'Change Password' : 'Update Profile'}
+            {isChangingPassword ? "Change Password" : "Update Profile"}
           </button>
         </MDBValidation>
       </div>
