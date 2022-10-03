@@ -4,7 +4,6 @@ import KeyresultItem from './KeyresultItem';
 let index = 0;
 const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
   const [keyresults, setKeyresults] = useState(keyResultData);
-  console.log(keyresults);
   useEffect(() => {
     getKeyresultData(keyresults);
   }, [keyresults, getKeyresultData]);

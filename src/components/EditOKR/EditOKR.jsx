@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 import { getObjective, updateObjective } from '../../api/http';
 import CreateKeyresult from './CreateKeyresult';
 import CreateObjective from './CreateObjective';
@@ -10,7 +12,9 @@ const EditOKR = () => {
   const [objectiveData, setObjectiveData] = useState({});
   const [keyresultData, setKeyresultData] = useState([]);
   const [wasValidated, setWasValidated] = useState('');
+
   const objectiveId = useParams().objectiveId;
+  const navigate = useNavigate();
 
   useEffect(() => {
     getObjective(objectiveId).then((response) => {
@@ -25,11 +29,22 @@ const EditOKR = () => {
     if (!e.target.checkValidity()) {
       return;
     }
-    console.log(keyresultData);
     updateObjective(objectiveId, {
       ...objectiveData,
       keyResults: keyresultData,
-    }).then((response) => console.log(response));
+    }).then((response) => {
+      if (response.status === 200) {
+        Swal.fire('Good job!', response.data.message, 'success').then(() => {
+          navigate('/');
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.data.message,
+        });
+      }
+    });
     setWasValidated('was-validated');
   };
 

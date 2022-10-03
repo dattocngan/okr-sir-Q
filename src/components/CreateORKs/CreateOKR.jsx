@@ -1,4 +1,7 @@
 import React, { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 import { createObjectives } from '../../api/http';
 import CreateKeyresult from './CreateKeyresult';
 import CreateObjective from './CreateObjective';
@@ -9,15 +12,31 @@ const CreateOKR = () => {
   const [keyresultData, setKeyresultData] = useState([]);
   const [wasValidated, setWasValidated] = useState('');
 
+  const navigate = useNavigate();
+
   const submitHandler = (e) => {
     setWasValidated('was-validated');
     // setNewOkr({ ...objectiveData, keyResult: keyresultData });
     e.preventDefault();
     if (!e.target.checkValidity()) {
-      e.preventDefault();
+      return;
     } else {
       createObjectives({ ...objectiveData, keyResults: keyresultData }).then(
-        (response) => console.log(response)
+        (response) => {
+          if (response.status === 201) {
+            Swal.fire('Good job!', response.data.message, 'success').then(
+              () => {
+                navigate('/');
+              }
+            );
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: response.data.message,
+            });
+          }
+        }
       );
     }
   };

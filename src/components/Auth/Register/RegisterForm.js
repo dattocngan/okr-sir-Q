@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 import { MDBValidation, MDBValidationItem, MDBInput } from 'mdb-react-ui-kit';
 import { register } from '../../../api/http';
 
@@ -19,9 +21,16 @@ const RegisterForm = () => {
         username: registerInput.username,
         password: registerInput.password,
       }).then((response) => {
-        alert(response.data.message);
         if (response.status === 201) {
-          navigate('/auth/login');
+          Swal.fire('Good job!', response.data.message, 'success').then(() => {
+            navigate('/auth/login');
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: response.data.message,
+          });
         }
       });
     }
