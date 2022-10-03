@@ -5,11 +5,15 @@ import Swal from 'sweetalert2';
 import { getAllObjectives } from '../../api/http';
 import Header from './Header';
 import OKR from './OKR';
+import Modal from '../UI/Modal';
+import Loader from '../UI/Loader';
 
 const AllObjectives = () => {
   const [data, setData] = useState([]);
   const [, setIsAuth] = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    setIsLoading(true);
     getAllObjectives().then((response) => {
       if (response.status === 200) {
         setData(response.data.objectives);
@@ -22,12 +26,14 @@ const AllObjectives = () => {
           text: 'Something went wrong!',
         });
       }
+      setIsLoading(false);
     });
   }, []);
 
   return (
     <>
       <Header />
+      {isLoading && <Loader />}
       {data.map((OkrData, index) => (
         <OKR OkrData={OkrData} key={index} />
       ))}

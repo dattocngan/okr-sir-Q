@@ -3,26 +3,31 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import { createObjectives } from '../../api/http';
+import Loader from '../UI/Loader';
+import Modal from '../UI/Modal';
 import CreateKeyresult from './CreateKeyresult';
 import CreateObjective from './CreateObjective';
 
 const CreateOKR = () => {
-  const [newOkr, setNewOkr] = useState({});
   const [objectiveData, setObjectiveData] = useState({});
   const [keyresultData, setKeyresultData] = useState([]);
   const [wasValidated, setWasValidated] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const submitHandler = (e) => {
     setWasValidated('was-validated');
+    setIsLoading(true);
     // setNewOkr({ ...objectiveData, keyResult: keyresultData });
     e.preventDefault();
     if (!e.target.checkValidity()) {
+      setIsLoading(false);
       return;
     } else {
       createObjectives({ ...objectiveData, keyResults: keyresultData }).then(
         (response) => {
+          setIsLoading(false);
           if (response.status === 201) {
             Swal.fire('Good job!', response.data.message, 'success').then(
               () => {
@@ -47,6 +52,7 @@ const CreateOKR = () => {
 
   return (
     <>
+      {isLoading && <Modal children={<Loader />} />}
       <h1>Create OKR</h1>
       <form noValidate onSubmit={submitHandler} className={wasValidated}>
         <CreateObjective getObjectiveData={getObjectiveData} />

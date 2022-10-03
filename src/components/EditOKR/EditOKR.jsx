@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import { getObjective, updateObjective } from '../../api/http';
+import Loader from '../UI/Loader';
+import Modal from '../UI/Modal';
 import CreateKeyresult from './CreateKeyresult';
 import CreateObjective from './CreateObjective';
 
@@ -26,13 +28,16 @@ const EditOKR = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     if (!e.target.checkValidity()) {
+      setIsLoading(false);
       return;
     }
     updateObjective(objectiveId, {
       ...objectiveData,
       keyResults: keyresultData,
     }).then((response) => {
+      setIsLoading(false);
       if (response.status === 200) {
         Swal.fire('Good job!', response.data.message, 'success').then(() => {
           navigate('/');
@@ -54,6 +59,7 @@ const EditOKR = () => {
 
   return (
     <>
+      {isLoading && <Modal children={<Loader />} />}
       {!isLoading && (
         <>
           <h1>Edit OKR</h1>
