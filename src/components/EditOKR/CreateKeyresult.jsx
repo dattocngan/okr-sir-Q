@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
-import KeyresultItem from "./KeyresultItem";
+import React, { useState, useEffect, useCallback } from 'react';
+import KeyresultItem from './KeyresultItem';
 
 let index = 0;
 const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
   const [keyresults, setKeyresults] = useState(keyResultData);
-  console.log(keyResultData);
-
+  console.log(keyresults);
   useEffect(() => {
     getKeyresultData(keyresults);
   }, [keyresults, getKeyresultData]);
@@ -15,10 +14,9 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
       ...keyresults,
       {
         id: ++index,
-        name: "",
-        target: "",
-        dueDate: "",
-        unit: "",
+        name: '',
+        target: '',
+        unit: 'PERCENT',
       },
     ]);
   };
@@ -31,8 +29,11 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
     setKeyresults((prev) => {
       const newKeyResults = [...prev];
       for (let [index, val] of newKeyResults.entries()) {
-        if (val.id === id) {
-          newKeyResults[index] = newValue;
+        if (val._id === id || val.id === id) {
+          newKeyResults[index].content = newValue.content;
+          newKeyResults[index].target = newValue.target;
+          newKeyResults[index].deadlineAt = newValue.deadlineAt;
+          newKeyResults[index].unit = newValue.unit;
           break;
         }
       }
@@ -43,7 +44,7 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
   return (
     <div className="mt-4" id="wrapper">
       {keyresults.map((keyresult, index) => {
-        if (!index)
+        if (!index) {
           return (
             <KeyresultItem
               defaultContent={keyresult.content}
@@ -51,22 +52,22 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
               defaultUnit={keyresult.unit}
               defaultCurrentAchievement={keyresult.currentAchievement}
               defaultTarget={keyresult.target}
-              key={keyresult._id}
-              id={keyresult._id}
+              key={keyresult._id ? keyresult._id : keyresult.id}
+              id={keyresult._id ? keyresult._id : keyresult.id}
               isDefault={true}
               updateKeyresult={updateKeyresult}
             />
           );
-        else
+        } else
           return (
             <KeyresultItem
-              efaultContent={keyresult.content}
+              defaultContent={keyresult.content}
               defaultDeadlineAt={keyresult.deadlineAt}
               defaultUnit={keyresult.unit}
               defaultCurrentAchievement={keyresult.currentAchievement}
               defaultTarget={keyresult.target}
-              key={keyresult._id}
-              id={keyresult._id}
+              key={keyresult._id ? keyresult._id : keyresult.id}
+              id={keyresult._id ? keyresult._id : keyresult.id}
               isDefault={false}
               deleteKeyresult={deleteKeyresult}
               updateKeyresult={updateKeyresult}
@@ -81,7 +82,7 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
         className="material-icons btn btn-outline-primary btn-floating mb-4 ms-5 ripple-surface-primary"
         onClick={addKeyresult}
       >
-        {" "}
+        {' '}
         add
       </button>
     </div>
