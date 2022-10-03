@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import avatar from '../../assets/images/img.jpg';
+import AuthContext from '../../store/Auth/AuthContext';
 
 const Header = () => {
   const name = localStorage.getItem('name');
+
+  const [, setIsAuth] = useContext(AuthContext);
+
+  const logoutHandler = () => {
+      setIsAuth(false);
+      localStorage.removeItem(`name`);
+      localStorage.removeItem(`token`);
+    };
+
   return (
     <header className="d-flex align-items-center justify-content-between pb-sm-5 pb-3">
       <h2 className="">Objectives Explorer</h2>
@@ -43,15 +53,10 @@ const Header = () => {
                 Profile
               </Link>
             </li>
-            <li>
-              <Link className="dropdown-item" to={'/'}>
-                Another action
-              </Link>
-            </li>
-            <li>
-              <Link className="dropdown-item" to={'/'}>
-                Something else here
-              </Link>
+            <li >
+                <span className="dropdown-item" onClick={logoutHandler}>
+                   Log out
+                </span>
             </li>
           </ul>
         </div>

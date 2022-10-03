@@ -12,14 +12,14 @@ const sidebarData = [
     key: 2,
     icon: 'emoji_objects',
     name: 'All objectives',
-    url: '/',
+    url : '/',
   },
-  {
-    key: 3,
-    icon: 'logout',
-    name: 'Logout',
-    url: '/logout',
-  },
+  // {
+  //   key: 3,
+  //   icon: 'logout',
+  //   name: 'Logout',
+  //   url: '/logout',
+  // },
 ];
 const Sidebar = () => {
   const sidebarList = sidebarData.map((item) => (
