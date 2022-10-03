@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import avatar from '../../assets/images/img.jpg';
 
 const Header = () => {
+  const name = localStorage.getItem('name');
   return (
     <header className="d-flex align-items-center justify-content-between pb-sm-5 pb-3">
       <h2 className="">Objectives Explorer</h2>
@@ -24,11 +25,11 @@ const Header = () => {
           alt=""
         />
         <div className="justify-content-center d-none d-xxl-flex">
-          Xin chào <strong>&nbsp; Nguyễn Tiến Đạt</strong>
+          Xin chào <strong>&nbsp; {name === 'undefined' ? '' : name}</strong>
         </div>
         <div className="dropdown ms-3">
           <button
-            className="btn shadow-0 dropdown-toggle"
+            className="btn shadow-0"
             type="button"
             id="dropdownMenuButton"
             data-mdb-toggle="dropdown"
@@ -39,7 +40,7 @@ const Header = () => {
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li>
               <Link className="dropdown-item" to={'/user'}>
-                Edit profile
+                Profile
               </Link>
             </li>
             <li>

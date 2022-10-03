@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import { getAllObjectives } from '../../api/http';
 import Header from './Header';
 import OKR from './OKR';
-import Modal from '../UI/Modal';
 import Loader from '../UI/Loader';
 
 const AllObjectives = () => {
@@ -28,7 +27,7 @@ const AllObjectives = () => {
       }
       setIsLoading(false);
     });
-  }, []);
+  }, [setIsAuth]);
 
   return (
     <>

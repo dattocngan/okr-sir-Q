@@ -28,16 +28,17 @@ const RouteContent = ({ children }) => (
 function App() {
   const [isAuth, setIsAuth] = useContext(AuthContext);
   const token = localStorage.getItem('token');
-  const { isExpired } = useJwt(token);
+  const { decodedToken, isExpired } = useJwt(token);
 
   useEffect(() => {
     if (token && !isExpired) {
+      localStorage.setItem('name', decodedToken?.name);
       setHeader(token);
       setIsAuth(true);
     } else {
       setIsAuth(false);
     }
-  }, [token, isExpired]);
+  }, [token, isExpired, decodedToken?.name, setIsAuth]);
 
   return (
     <div className="container-fluid px-0">
