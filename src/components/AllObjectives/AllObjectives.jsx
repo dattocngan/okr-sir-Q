@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../store/Auth/AuthContext';
 import Swal from 'sweetalert2';
 
-import { getAllObjectives } from '../../api/http';
+import { deleteObjective, getAllObjectives } from '../../api/http';
 import Header from './Header';
 import OKR from './OKR';
 import Loader from '../UI/Loader';
+import Modal from '../UI/Modal';
 
 const AllObjectives = () => {
   const [data, setData] = useState([]);
   const [, setIsAuth] = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingWithBackdrop, setIsLoadingWithBackdrop] = useState(false);
   useEffect(() => {
     setIsLoading(true);
     getAllObjectives().then((response) => {
@@ -29,13 +31,43 @@ const AllObjectives = () => {
     });
   }, [setIsAuth]);
 
+  const deleteOkr = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setIsLoadingWithBackdrop(true);
+        deleteObjective(id).then((response) => {
+          if (response.status === 200) {
+            setIsLoadingWithBackdrop(false);
+            setData(data.filter((item) => item._id !== id));
+            Swal.fire('Deleted!', response.data.message, 'success');
+          }
+        });
+      }
+    });
+  };
+
   return (
     <>
       <Header />
       {isLoading && <Loader />}
-      {data.map((OkrData, index) => (
-        <OKR OkrData={OkrData} key={index} />
-      ))}
+      {isLoadingWithBackdrop && <Modal children={<Loader />} />}
+      {!isLoading && data.length === 0 && (
+        <h5>There is no OKR. Let's go and create one!</h5>
+      )}
+      {data.map((OkrData) => {
+        // console.log(OkrData);
+        return (
+          <OKR OkrData={OkrData} key={OkrData._id} onDeleteOkr={deleteOkr} />
+        );
+      })}
     </>
   );
 };

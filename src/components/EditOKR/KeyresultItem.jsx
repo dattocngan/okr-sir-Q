@@ -29,13 +29,14 @@ const KeyresultItem = ({
   defaultCurrentAchievement,
   defaultUnit,
   defaultDeadlineAt,
+  isGettingFromDb,
 }) => {
   const [currentUnit, setCurrentUnit] = useState(
     defaultUnit ? defaultUnit : ''
   );
   const [name, setName] = useState(defaultContent ? defaultContent : '');
   const [currentAchievement, setCurrentAchievement] = useState(
-    defaultCurrentAchievement
+    defaultCurrentAchievement ? defaultCurrentAchievement : ''
   );
   const [target, setTarget] = useState(defaultTarget ? defaultTarget : '');
   const [dueDate, setDueDate] = useState(
@@ -144,7 +145,7 @@ const KeyresultItem = ({
       </div>
       <i
         className={`col-auto text-center material-icons text-black-50 ripple-surface-dark align-self-center btn shadow-0 p-0 ${
-          isDefault ? 'invisible' : 'visible'
+          isGettingFromDb ? 'invisible' : 'visible'
         }`}
         onClick={() => deleteKeyresult(id)}
       >

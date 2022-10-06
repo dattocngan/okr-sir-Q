@@ -65,6 +65,15 @@ export const updateObjective = async (id, data) => {
   }
 };
 
+export const deleteObjective = async (id) => {
+  try {
+    const response = await axios.delete(`objectives/${id}`);
+    return response;
+  } catch (err) {
+    return err.response;
+  }
+};
+
 // Edit profile
 
 export const getProfile = async () => {

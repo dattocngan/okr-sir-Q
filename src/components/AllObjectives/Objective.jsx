@@ -1,23 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import avatar from '../../assets/images/img.jpg';
 
-const Objective = ({ id, content, deadlineAt, type, getToggle, getColor, average }) => {
-  let [toggle, setToggle ] = useState('d-none');
+const Objective = ({
+  id,
+  content,
+  deadlineAt,
+  type,
+  getToggle,
+  getColor,
+  average,
+  deleteOkrHandler,
+}) => {
+  let [toggle, setToggle] = useState('d-none');
   const color = getColor(average);
-  
 
   let shortcut = (e) => {
-    if (e.target.innerText === "expand_more") {
-      e.target.innerText = "remove";
-      setToggle("");
+    if (e.target.innerText === 'expand_more') {
+      e.target.innerText = 'remove';
+      setToggle('');
     } else {
-      e.target.innerText = "expand_more";
-      setToggle("d-none");
+      e.target.innerText = 'expand_more';
+      setToggle('d-none');
     }
-  }
+  };
 
-  useEffect (() => getToggle(toggle), [toggle, getToggle]);
+  useEffect(() => getToggle(toggle), [toggle, getToggle]);
 
   return (
     <div className="d-flex align-items-center fw-bold px-3 py-2 rounded-pill shadow-custom">
@@ -39,19 +47,24 @@ const Objective = ({ id, content, deadlineAt, type, getToggle, getColor, average
         <span className="col-2">{type}</span>
         <span className="col-2">{deadlineAt}</span>
         <span className={`col-1 text-${color}`}>
-          {(average * 100).toFixed(0) + " %"}
+          {(average * 100).toFixed(0) + ' %'}
         </span>
         <div className="col-1">
           <div className={`rounded-circle bg-${color} square-1rem`}></div>
         </div>
       </div>
       <Link to={`/objectives/edit/${id}`}>
-        <button
-          className="btn btn-sm btn-rounded btn-outline-secondary ripple-surface-primary"
-        >
+        <button className="btn btn-sm btn-rounded btn-outline-secondary ripple-surface-primary">
           edit
         </button>
       </Link>
+
+      <button
+        className="btn btn-sm btn-rounded btn-outline-secondary ripple-surface-primary ms-2"
+        onClick={deleteOkrHandler.bind(null, id)}
+      >
+        delete
+      </button>
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import KeyResults from './KeyResults'
-import Objective from './Objective'
+import React, { useCallback, useEffect, useState } from 'react';
+import KeyResults from './KeyResults';
+import Objective from './Objective';
 
-const OKR = ({OkrData}) => {
+const OKR = ({ OkrData, onDeleteOkr }) => {
   let [toggleKeyResult, setToggleKeyResult] = useState('');
   let [average, setAverage] = useState(0);
   let [objective, setObjective] = useState({
@@ -25,18 +25,30 @@ const OKR = ({OkrData}) => {
     // setNewOkr({ ...objective, keyResults: keyResults });
   }, [objective, keyResults]);
 
-  // useEffect(() => console.log(newOkr), [newOkr])
   const timeConverter = (data) => {
     let date = new Date(data);
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
     return months[date.getMonth()] + ' ' + date.getDate();
-  }
+  };
 
   const getColor = (data) => {
-    if (data >= 0.7)  return 'success';
+    if (data >= 0.7) return 'success';
     else if (data >= 0.4) return 'warning';
-    else  return 'danger';
-  }
+    else return 'danger';
+  };
 
   return (
     <div className="mb-3">
@@ -49,6 +61,7 @@ const OKR = ({OkrData}) => {
         getColor={getColor}
         getObjective={getObjective}
         average={average}
+        deleteOkrHandler={onDeleteOkr}
       />
       <KeyResults
         keyResults={keyResults}
@@ -60,6 +73,6 @@ const OKR = ({OkrData}) => {
       />
     </div>
   );
-}
+};
 
-export default OKR
+export default OKR;

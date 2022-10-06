@@ -55,6 +55,7 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
               key={keyresult._id ? keyresult._id : keyresult.id}
               id={keyresult._id ? keyresult._id : keyresult.id}
               isDefault={true}
+              isGettingFromDb={keyresult._id ? true : false}
               updateKeyresult={updateKeyresult}
             />
           );
@@ -70,6 +71,7 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
               id={keyresult._id ? keyresult._id : keyresult.id}
               isDefault={false}
               deleteKeyresult={deleteKeyresult}
+              isGettingFromDb={keyresult._id ? true : false}
               updateKeyresult={updateKeyresult}
             />
           );
