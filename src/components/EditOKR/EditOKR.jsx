@@ -27,13 +27,13 @@ const EditOKR = () => {
   }, [objectiveId]);
 
   const submitHandler = (e) => {
+    setWasValidated("was-validated");
     e.preventDefault();
     setIsLoading(true);
     if (!e.target.checkValidity()) {
       setIsLoading(false);
       return;
     }
-    console.log(keyresultData);
     updateObjective(objectiveId, {
       ...objectiveData,
       keyResults: keyresultData,
@@ -51,7 +51,6 @@ const EditOKR = () => {
         });
       }
     });
-    setWasValidated('was-validated');
   };
 
   const getObjectiveData = useCallback((data) => setObjectiveData(data), []);

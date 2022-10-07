@@ -95,15 +95,15 @@ const CreateObjective = ({ getObjectiveData, defaultContent, defaultDeadlineAt, 
           </div>
           <div className="col-sm-4 col-md-3 col-lg-2">
             <p className="fw-bold">Status:</p>
-            <input
-              className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
-              type="text"
-              placeholder="..."
-              name="status"
-              required
+            <select
+              className="h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3 form-select"
+              aria-label="Default select example"
               onChange={(e) => setStatus(e.target.value)}
-              value={status}
-            />
+              defaultValue={status}
+            >
+              <option value="NOT_STARTED">NOT_STARTED</option>
+              <option value="IN_PROGRESS">IN_PROGRESS</option>
+            </select>
             <div className="invalid-feedback ms-3">Status is required</div>
           </div>
         </div>

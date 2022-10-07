@@ -87,7 +87,7 @@ const KeyresultItem = ({
           onChange={(e) => setCurrentAchievement(e.target.value)}
           value={currentAchievement}
         />
-        <div className="invalid-feedback ms-3">Key result is required</div>
+        <div className="invalid-feedback ms-3">Current achievement is required</div>
       </div>
       <div className="col col-md-2">
         {isDefault && <p className="fw-bold">Target:</p>}
