@@ -46,7 +46,7 @@ const AllObjectives = () => {
         deleteObjective(id).then((response) => {
           if (response.status === 200) {
             setIsLoadingWithBackdrop(false);
-            setData(data.filter((item) => item._id !== id));
+            setData(data.filter((item) => item.id !== id));
             Swal.fire('Deleted!', response.data.message, 'success');
           }
         });
@@ -65,7 +65,7 @@ const AllObjectives = () => {
       {data.map((OkrData) => {
         // console.log(OkrData);
         return (
-          <OKR OkrData={OkrData} key={OkrData._id} onDeleteOkr={deleteOkr} />
+          <OKR OkrData={OkrData} key={OkrData.id} onDeleteOkr={deleteOkr} />
         );
       })}
     </>

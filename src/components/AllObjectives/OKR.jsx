@@ -6,7 +6,7 @@ const OKR = ({ OkrData, onDeleteOkr }) => {
   let [toggleKeyResult, setToggleKeyResult] = useState('');
   let [average, setAverage] = useState(0);
   let [objective, setObjective] = useState({
-    id: OkrData._id,
+    id: OkrData.id,
     type: OkrData.type,
     content: OkrData.content,
     reason: OkrData.reason,

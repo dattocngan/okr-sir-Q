@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://teamweb2-1.herokuapp.com/api/v1/';
+axios.defaults.baseURL = 'http://localhost:8080/api/v1/';
 
 // Authentication
 
 export const setHeader = (token) => {
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  axios.defaults.headers.common['userId'] = token;
 };
 
 export const register = async (value) => {
@@ -20,7 +20,8 @@ export const register = async (value) => {
 export const login = async (value) => {
   try {
     const response = await axios.post('auth/login', value);
-    localStorage.setItem('token', response.data.token);
+    localStorage.setItem('userId', response.data.userId);
+    localStorage.setItem('name', response.data.fullName);
     return response;
   } catch (err) {
     return err.response;

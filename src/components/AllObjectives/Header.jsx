@@ -11,7 +11,7 @@ const Header = () => {
   const logoutHandler = () => {
       setIsAuth(false);
       localStorage.removeItem(`name`);
-      localStorage.removeItem(`token`);
+      localStorage.removeItem(`userId`);
     };
 
   return (
@@ -34,8 +34,8 @@ const Header = () => {
           className="h-3rem w-3rem object-cover rounded-circle me-3"
           alt=""
         />
-        <div className="justify-content-center d-none d-xxl-flex">
-          Xin chào <strong>&nbsp; {name === 'undefined' ? '' : name}</strong>
+        <div className="justify-content-center d-none d-lg-flex">
+          Xin chào <strong>&nbsp; {name}</strong>
         </div>
         <div className="dropdown ms-3">
           <button

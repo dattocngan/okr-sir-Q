@@ -12,7 +12,7 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
     setKeyresults([
       ...keyresults,
       {
-        id: ++index,
+        idIndex: ++index,
         name: '',
         target: '',
         unit: 'PERCENT',
@@ -20,15 +20,15 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
     ]);
   };
 
-  const deleteKeyresult = (id) => {
-    setKeyresults(keyresults.filter((keyresult) => keyresult.id !== id));
+  const deleteKeyresult = (idIndex) => {
+    setKeyresults(keyresults.filter((keyresult) => keyresult.idIndex !== idIndex));
   };
 
-  const updateKeyresult = useCallback((id, newValue) => {
+  const updateKeyresult = useCallback((idIndex, newValue) => {
     setKeyresults((prev) => {
       const newKeyResults = [...prev];
       for (let [index, val] of newKeyResults.entries()) {
-        if (val._id === id || val.id === id) {
+        if (val.id === idIndex || val.idIndex === idIndex) {
           newKeyResults[index].content = newValue.content;
           newKeyResults[index].target = newValue.target;
           newKeyResults[index].currentAchievement = newValue.currentAchievement;
@@ -52,10 +52,10 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
               defaultUnit={keyresult.unit}
               defaultCurrentAchievement={keyresult.currentAchievement}
               defaultTarget={keyresult.target}
-              key={keyresult._id ? keyresult._id : keyresult.id}
-              id={keyresult._id ? keyresult._id : keyresult.id}
+              key={keyresult.id ? keyresult.id : keyresult.idIndex}
+              id={keyresult.id ? keyresult.id : keyresult.idIndex}
               isDefault={true}
-              isGettingFromDb={keyresult._id ? true : false}
+              isGettingFromDb={keyresult.id ? true : false}
               updateKeyresult={updateKeyresult}
             />
           );
@@ -67,11 +67,11 @@ const CreateKeyresult = ({ getKeyresultData, keyResultData }) => {
               defaultUnit={keyresult.unit}
               defaultCurrentAchievement={keyresult.currentAchievement}
               defaultTarget={keyresult.target}
-              key={keyresult._id ? keyresult._id : keyresult.id}
-              id={keyresult._id ? keyresult._id : keyresult.id}
+              key={keyresult.id ? keyresult.id : keyresult.idIndex}
+              id={keyresult.id ? keyresult.id : keyresult.idIndex}
               isDefault={false}
               deleteKeyresult={deleteKeyresult}
-              isGettingFromDb={keyresult._id ? true : false}
+              isGettingFromDb={keyresult.id ? true : false}
               updateKeyresult={updateKeyresult}
             />
           );

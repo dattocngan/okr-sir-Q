@@ -25,7 +25,10 @@ const CreateOKR = () => {
       setIsLoading(false);
       return;
     } else {
-      createObjectives({ ...objectiveData, keyResults: keyresultData }).then(
+      createObjectives({ ...objectiveData, keyResults: keyresultData.map(keyresult => {
+        const {id, ...rest} = keyresult
+        return rest
+      }) }).then(
         (response) => {
           setIsLoading(false);
           if (response.status === 201) {

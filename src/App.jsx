@@ -1,7 +1,6 @@
 // import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import { useContext, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useJwt } from 'react-jwt';
 
 import { setHeader } from './api/http';
 import AllObjectives from './components/AllObjectives/AllObjectives';
@@ -27,18 +26,17 @@ const RouteContent = ({ children }) => (
 
 function App() {
   const [isAuth, setIsAuth] = useContext(AuthContext);
-  const token = localStorage.getItem('token');
-  const { decodedToken, isExpired } = useJwt(token);
+  const userId = localStorage.getItem('userId');
+  const fullName = localStorage.getItem('fullName');
 
   useEffect(() => {
-    if (token && !isExpired) {
-      localStorage.setItem('name', decodedToken?.name);
-      setHeader(token);
+    if (userId) {
+      setHeader(userId);
       setIsAuth(true);
     } else {
       setIsAuth(false);
     }
-  }, [token, isExpired, decodedToken?.name, setIsAuth]);
+  }, [userId, fullName, setIsAuth]);
 
   return (
     <div className="container-fluid px-0">
