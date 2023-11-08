@@ -66,7 +66,7 @@ const KeyresultItem = ({
   return (
     <div className="row g-3 mb-4 key-result align-items-stretch">
       <div className="col col-12 col-md-2 flex-md-fill">
-        {isDefault && <p className="fw-bold">Key results:</p>}
+        {isDefault && <p className="fw-bold">Các mục tiêu con:</p>}
         <input
           className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
           type="text"
@@ -90,7 +90,7 @@ const KeyresultItem = ({
         <div className="invalid-feedback ms-3">Current achievement is required</div>
       </div>
       <div className="col col-md-2">
-        {isDefault && <p className="fw-bold">Target:</p>}
+        {isDefault && <p className="fw-bold">Cột mốc:</p>}
         {currentUnit === 'binary' ? (
           <div className="form-check form-switch align-items-center">
             <input
@@ -129,7 +129,7 @@ const KeyresultItem = ({
         <div className="invalid-feedback ms-3">Due date is required</div>
       </div>
       <div className="col col-md-3">
-        {isDefault && <p className="fw-bold">Unit:</p>}
+        {isDefault && <p className="fw-bold">Đơn vị:</p>}
         <div className="form-control h-3rem btn-group rounded-pill shadow-custom overflow-hidden p-0 border-0">
           {units.map((unit, index) => (
             <KeyresultItemUnit

@@ -5,13 +5,13 @@ const sidebarData = [
   {
     key: 1,
     icon: 'add_circle',
-    name: 'Create OKR',
+    name: 'Tạo mục tiêu',
     url: '/objectives/create_okr',
   },
   {
     key: 2,
     icon: 'emoji_objects',
-    name: 'All objectives',
+    name: 'Tất cả mục tiêu',
     url : '/',
   },
   // {

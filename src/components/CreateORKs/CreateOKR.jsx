@@ -56,7 +56,7 @@ const CreateOKR = () => {
   return (
     <>
       {isLoading && <Modal children={<Loader />} />}
-      <h1>Create OKR</h1>
+      <h1>Tạo mục tiêu</h1>
       <form noValidate onSubmit={submitHandler} className={wasValidated}>
         <CreateObjective getObjectiveData={getObjectiveData} />
         <CreateKeyresult getKeyresultData={getKeyresultData} />
@@ -65,7 +65,7 @@ const CreateOKR = () => {
           type="submit"
           className="btn btn-primary rounded-pill h-3rem px-5"
         >
-          Add Objective
+          Thêm mục tiêu
         </button>
       </form>
     </>

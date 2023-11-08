@@ -21,7 +21,7 @@ const CreateObjective = ({ getObjectiveData }) => {
     return (
       <div id="objective">
         <div className="col-12 col-sm-10 col-md-9 col-lg-8 mt-4 pe-2">
-          <p className="fw-bold">Aspirational objective:</p>
+          <p className="fw-bold">Mục tiêu hướng tới:</p>
           <div className="d-flex">
             <img
               src={avatar}
@@ -44,7 +44,7 @@ const CreateObjective = ({ getObjectiveData }) => {
         </div>
         <div className="row g-3 row-cols-1 row-cols-sm-2 mt-2">
           <div className="col col-sm-4 col-md-3 col-lg-2">
-            <p className="fw-bold">Due date:</p>
+            <p className="fw-bold">Hạn cuối:</p>
             <input
               className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
               type="date"
@@ -58,7 +58,7 @@ const CreateObjective = ({ getObjectiveData }) => {
             <div className="invalid-feedback ms-3">Due date is required</div>
           </div>
           <div className="col">
-            <p className="fw-bold">Goal type:</p>
+            <p className="fw-bold">Lĩnh vực:</p>
             <input
               className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
               type="text"
@@ -73,7 +73,7 @@ const CreateObjective = ({ getObjectiveData }) => {
         </div>
         <div className="row g-3 row-cols-1 row-cols-sm-2 mt-2">
           <div className="col">
-            <p className="fw-bold">Reason:</p>
+            <p className="fw-bold">Lí do:</p>
             <input
               className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
               type="text"
@@ -86,15 +86,15 @@ const CreateObjective = ({ getObjectiveData }) => {
             <div className="invalid-feedback ms-3">Reason is required</div>
           </div>
           <div className="col-sm-4 col-md-3 col-lg-2">
-            <p className="fw-bold">Status:</p>
+            <p className="fw-bold">Trạng thái:</p>
             <select
               className="h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3 form-select"
               aria-label="Default select example"
               onChange={(e) => setStatus(e.target.value)}
               defaultValue="NOT_STARTED"
             >
-              <option value="NOT_STARTED">NOT_STARTED</option>
-              <option value="IN_PROGRESS">IN_PROGRESS</option>
+              <option value="NOT_STARTED">Chưa bắt đầu</option>
+              <option value="IN_PROGRESS">Trong tiến trình</option>
             </select>
             <div className="invalid-feedback ms-3">Status is required</div>
           </div>

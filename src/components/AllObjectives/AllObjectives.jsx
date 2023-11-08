@@ -60,7 +60,7 @@ const AllObjectives = () => {
       {isLoading && <Loader />}
       {isLoadingWithBackdrop && <Modal children={<Loader />} />}
       {!isLoading && data.length === 0 && (
-        <h5>There is no OKR. Let's go and create one!</h5>
+        <h5>Hiện đang chưa có mục tiêu nào. Hãy đi tạo 1 cái nào!</h5>
       )}
       {data.map((OkrData) => {
         // console.log(OkrData);

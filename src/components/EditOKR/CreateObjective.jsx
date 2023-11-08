@@ -52,7 +52,7 @@ const CreateObjective = ({ getObjectiveData, defaultContent, defaultDeadlineAt, 
         </div>
         <div className="row g-3 row-cols-1 row-cols-sm-2 mt-2">
           <div className="col col-sm-4 col-md-3 col-lg-2">
-            <p className="fw-bold">Due date:</p>
+            <p className="fw-bold">Hạn cuối:</p>
             <input
               className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
               type="date"
