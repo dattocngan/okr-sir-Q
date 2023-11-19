@@ -59,12 +59,12 @@ const EditProfile = () => {
           setIsLoading(false);
           if (response.status === 200) {
             localStorage.setItem('name', newProfile.name);
-            Swal.fire('Good job!', response.data.message, 'success');
+            Swal.fire('Hoàn thành!', response.data.message, 'success');
           } else {
             Swal.fire({
               icon: 'error',
-              title: 'Oops...',
-              text: 'Something went wrong!',
+              title: 'Rất tiếc...',
+              text: 'Đã xảy ra lỗi!',
             });
           }
         });
@@ -77,14 +77,14 @@ const EditProfile = () => {
           }).then((response) => {
             setIsLoading(false);
             if (response.status === 200) {
-              Swal.fire('Good job!', response.data.message, 'success');
+              Swal.fire('Hoàn thành!', response.data.message, 'success');
               setPassword('');
               setNewPassword('');
               setConfirmPassword('');
             } else {
               Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
+                title: 'Rất tiếc...',
                 text: response.data.message,
               });
             }
@@ -98,7 +98,7 @@ const EditProfile = () => {
     <div className="d-flex justify-content-center align-items-center">
       {isLoading && <Modal children={<Loader />} />}
       <div className="w-50 py-5">
-        <h1 className="mb-3">Profile</h1>
+        <h1 className="mb-3">Hồ sơ</h1>
         <MDBTabs pills justify className="mb-3 d-flex">
           <MDBTabsItem className="d-flex">
             <MDBTabsLink
@@ -106,7 +106,7 @@ const EditProfile = () => {
               active={!isChangingPassword}
               onClick={() => setIsChangingPassword(false)}
             >
-              Edit Profile
+              Chỉnh sửa hồ sơ
             </MDBTabsLink>
           </MDBTabsItem>
           <MDBTabsItem className="d-flex">
@@ -115,22 +115,22 @@ const EditProfile = () => {
               active={isChangingPassword}
               onClick={() => setIsChangingPassword(true)}
             >
-              Change Password
+              Thay đổi mật khẩu
             </MDBTabsLink>
           </MDBTabsItem>
         </MDBTabs>
         {!isLoading && !isChangingPassword && (
           <MDBValidation onSubmit={submitHandle}>
             <MDBValidationItem className="mb-5">
-              <MDBInput label="Username" defaultValue={userName} disabled />
+              <MDBInput label="Tên đăng nhập" defaultValue={userName} disabled />
             </MDBValidationItem>
             <MDBValidationItem
               className="mb-5"
-              feedback="Please provide your name."
+              feedback="Hãy cung cấp tên."
               invalid
             >
               <MDBInput
-                label="Name"
+                label="Tên"
                 defaultValue={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -138,12 +138,12 @@ const EditProfile = () => {
             </MDBValidationItem>
             <MDBValidationItem
               className="mb-5"
-              feedback="Please provide your birthday."
+              feedback="Hãu cung cấp ngày sinh."
               invalid
             >
               <MDBInput
                 type="date"
-                label="Birthday"
+                label="Ngày sinh"
                 defaultValue={dob}
                 onChange={(e) => setDob(e.target.value)}
                 required
@@ -153,19 +153,19 @@ const EditProfile = () => {
               <MDBRadio
                 name="Sex"
                 id="Male"
-                label="Male"
+                label="Nam"
                 defaultChecked={!sex ? true : false}
                 onChange={() => setSex(0)}
               />
               <MDBRadio
                 name="Sex"
                 id="Female"
-                label="Female"
+                label="Nữ"
                 defaultChecked={sex ? true : false}
                 onChange={() => setSex(1)}
               />
             </div>
-            <button className="btn btn-primary mt-4">Update Profile</button>
+            <button className="btn btn-primary mt-4">Cập nhật hồ sơ </button>
           </MDBValidation>
         )}
 
@@ -173,7 +173,7 @@ const EditProfile = () => {
           <form onSubmit={submitHandle}>
             <MDBInput
               className="mb-4"
-              label="Old Password"
+              label="Mật khẩu cũ"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
@@ -183,7 +183,7 @@ const EditProfile = () => {
 
             <MDBInput
               className="mb-4"
-              label="New Password"
+              label="Mật khẩu mới"
               type="password"
               onChange={(e) => setNewPassword(e.target.value)}
               value={newPassword}
@@ -193,7 +193,7 @@ const EditProfile = () => {
 
             <MDBInput
               className=""
-              label="Confirm Password"
+              label="Xác nhận lại mật khẩu"
               type="password"
               onChange={(e) => setConfirmPassword(e.target.value)}
               value={confirmPassword}
@@ -203,7 +203,7 @@ const EditProfile = () => {
             <span className="d-block text-danger">
               {!isEqual && confirmPassword && "Confirm password doesn't match"}
             </span>
-            <button className="btn btn-primary mt-4">Change Password</button>
+            <button className="btn btn-primary mt-4">Thay đổi mật khẩu</button>
           </form>
         )}
       </div>

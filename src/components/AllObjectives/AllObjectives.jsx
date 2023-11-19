@@ -23,8 +23,8 @@ const AllObjectives = () => {
       } else {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
+          title: 'Rất tiếc...',
+          text: 'Đã có lỗi!',
         });
       }
       setIsLoading(false);
@@ -33,13 +33,14 @@ const AllObjectives = () => {
 
   const deleteOkr = (id) => {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Bạn chắc chắn chứ?',
+      text: "Bạn sẽ không thể khôi phục lại!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Đúng, Xóa!',
+      cancelButtonText:'Hủy',
     }).then((result) => {
       if (result.isConfirmed) {
         setIsLoadingWithBackdrop(true);
@@ -47,7 +48,7 @@ const AllObjectives = () => {
           if (response.status === 200) {
             setIsLoadingWithBackdrop(false);
             setData(data.filter((item) => item.id !== id));
-            Swal.fire('Deleted!', response.data.message, 'success');
+            Swal.fire('Xóa!', response.data.message, 'success');
           }
         });
       }

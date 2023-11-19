@@ -27,7 +27,7 @@ const LoginForm = () => {
         } else {
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
+            title: 'Rất tiếc...',
             text: response.data.message,
           });
         }
@@ -49,14 +49,14 @@ const LoginForm = () => {
         className={`text-center mx-auto row row-cols-1 gy-3 gx-0 shadow-4 p-5`}
         onSubmit={submitHandler}
       >
-        <h2>Login</h2>
+        <h2>Đăng nhập</h2>
         <MDBValidationItem
-          feedback="Please input username"
+          feedback="Hãy nhập tên đăng nhập "
           invalid
           className="col mb-2"
         >
           <MDBInput
-            label="Username"
+            label="Tên đăng nhập"
             name="username"
             value={loginInput.username}
             type="text"
@@ -65,12 +65,12 @@ const LoginForm = () => {
           />
         </MDBValidationItem>
         <MDBValidationItem
-          feedback="Please enter a valid password (minimum length 8)"
+          feedback="Hãy nhập mật khẩu có hiểu lực (độ dài tối thiểu 8)"
           invalid
           className="col mb-2"
         >
           <MDBInput
-            label="Password"
+            label="Mật khẩu"
             name="password"
             value={loginInput.password}
             type="password"
@@ -83,13 +83,13 @@ const LoginForm = () => {
           type="submit"
           className="btn-lg btn-success btn-block mb-4 border-0 fw-bold"
         >
-          Login
+          Đăng nhập
         </button>
         <p className="small">
-          Don't have an account?
+          Không có tài khoản?
           <Link to="/auth/register">
             <span className="text-success" role="button">
-              Register here
+              Đăng kí ở đây
             </span>
           </Link>
         </p>

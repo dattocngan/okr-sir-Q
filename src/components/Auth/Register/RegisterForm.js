@@ -27,13 +27,13 @@ const RegisterForm = () => {
       }).then((response) => {
         setIsLoading(false);
         if (response.status === 201) {
-          Swal.fire('Good job!', response.data.message, 'success').then(() => {
+          Swal.fire('Hoàn thành!', response.data.message, 'success').then(() => {
             navigate('/auth/login');
           });
         } else {
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
+            title: 'Rất tiếc...',
             text: response.data.message,
           });
         }
@@ -55,14 +55,14 @@ const RegisterForm = () => {
         className={`text-center mx-auto row row-cols-1 gy-3 gx-0 shadow-4 p-5`}
         onSubmit={submitHandler}
       >
-        <h2>Register</h2>
+        <h2>Đăng kí</h2>
         <MDBValidationItem
-          feedback="Please input fullname"
+          feedback="Hãy nhập nhập họ và tên"
           invalid
           className="col mb-2"
         >
           <MDBInput
-            label="Fullname"
+            label="Họ và tên"
             name="fullname"
             value={registerInput.fullname}
             type="text"
@@ -71,12 +71,12 @@ const RegisterForm = () => {
           />
         </MDBValidationItem>
         <MDBValidationItem
-          feedback="Please input username"
+          feedback="Hãy điền tên đăng nhập"
           invalid
           className="col mb-2"
         >
           <MDBInput
-            label="Username"
+            label="Tên đăng nhập"
             name="username"
             value={registerInput.username}
             type="text"
@@ -85,12 +85,12 @@ const RegisterForm = () => {
           />
         </MDBValidationItem>
         <MDBValidationItem
-          feedback="Please enter a valid password (minimum length 8)"
+          feedback="Hãy nhập mật khẩu có hiệu lực ( độ dài nhỏ nhất  8)"
           invalid
           className="col mb-2"
         >
           <MDBInput
-            label="Password"
+            label="Mật khẩu"
             name="password"
             value={registerInput.password}
             minLength={8}
@@ -103,13 +103,13 @@ const RegisterForm = () => {
           type="submit"
           className="btn-lg btn-success btn-block mb-4 border-0 fw-bold"
         >
-          Register
+          Đăng kí
         </button>
         <p className="small">
-          Don't have an account?
+          Không có tài khoản?
           <Link to="/auth/login">
             <span className="text-success" role="button">
-              Login here
+              Đăng nhập ở đây
             </span>
           </Link>
         </p>

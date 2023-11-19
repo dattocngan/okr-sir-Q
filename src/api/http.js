@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://7897-42-1-70-114.ngrok-free.app/api/v1/';
+axios.defaults.baseURL = 'http://localhost:8080/api/v1/';
 
 // Authentication
 

@@ -75,19 +75,19 @@ const KeyresultItem = ({
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
-        <div className="invalid-feedback ms-3">Key result is required</div>
+        <div className="invalid-feedback ms-3">Trường này là bắt buộc</div>
       </div>
       <div className="col col-12 col-md-2 flex-md-fill">
-        {isDefault && <p className="fw-bold">Current Achievement:</p>}
+        {isDefault && <p className="fw-bold">Thành tích hiện tại :</p>}
         <input
           className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
           type="text"
-          placeholder="e.g. Start sales in new countries and hit $200,000 there"
+          placeholder="vd. Btaws đầu bán ở đất nước mới và đạt được 200,000$"
           required
           onChange={(e) => setCurrentAchievement(e.target.value)}
           value={currentAchievement}
         />
-        <div className="invalid-feedback ms-3">Current achievement is required</div>
+        <div className="invalid-feedback ms-3">Trường này là bắt buộc</div>
       </div>
       <div className="col col-md-2">
         {isDefault && <p className="fw-bold">Cột mốc:</p>}
@@ -112,12 +112,12 @@ const KeyresultItem = ({
               onChange={(e) => setTarget(e.target.value)}
               value={target}
             />
-            <div className="invalid-feedback ms-3">Target is required</div>
+            <div className="invalid-feedback ms-3">Trường này là bắt buộc</div>
           </>
         )}
       </div>
       <div className="col col-md-2">
-        {isDefault && <p className="fw-bold">Due date:</p>}
+        {isDefault && <p className="fw-bold">Hạn cuối :</p>}
         <input
           className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
           type="date"
@@ -126,7 +126,7 @@ const KeyresultItem = ({
           onChange={(e) => setDueDate(e.target.value)}
           value={dueDate.split('T')[0]}
         />
-        <div className="invalid-feedback ms-3">Due date is required</div>
+        <div className="invalid-feedback ms-3">Hạn cuối là bắt buộc</div>
       </div>
       <div className="col col-md-3">
         {isDefault && <p className="fw-bold">Đơn vị:</p>}
@@ -150,7 +150,7 @@ const KeyresultItem = ({
         onClick={() => deleteKeyresult(id)}
       >
         {' '}
-        close
+        đóng
       </i>
     </div>
   );

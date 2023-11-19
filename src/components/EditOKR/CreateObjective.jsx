@@ -29,7 +29,7 @@ const CreateObjective = ({ getObjectiveData, defaultContent, defaultDeadlineAt, 
     return (
       <div id="objective">
         <div className="col-12 col-sm-10 col-md-9 col-lg-8 mt-4 pe-2">
-          <p className="fw-bold">Aspirational objective:</p>
+          <p className="fw-bold">Mục tiêu hướng tới :</p>
           <div className="d-flex">
             <img
               src={avatar}
@@ -46,7 +46,7 @@ const CreateObjective = ({ getObjectiveData, defaultContent, defaultDeadlineAt, 
                 onChange={(e) => setObjective(e.target.value)}
                 value={objective}
               />
-              <div className="invalid-feedback ms-3">Objective is required</div>
+              <div className="invalid-feedback ms-3">Mục tiêu là bắt buộc</div>
             </div>
           </div>
         </div>
@@ -63,10 +63,10 @@ const CreateObjective = ({ getObjectiveData, defaultContent, defaultDeadlineAt, 
               onChange={(e) => setDueDate(e.target.value)}
               value={dueDate}
             />
-            <div className="invalid-feedback ms-3">Due date is required</div>
+            <div className="invalid-feedback ms-3">Hạn cuối là bắt buộc</div>
           </div>
           <div className="col">
-            <p className="fw-bold">Goal type:</p>
+            <p className="fw-bold">Lĩnh vực:</p>
             <input
               className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
               type="text"
@@ -76,12 +76,12 @@ const CreateObjective = ({ getObjectiveData, defaultContent, defaultDeadlineAt, 
               onChange={(e) => setGoalType(e.target.value)}
               value={goalType}
             />
-            <div className="invalid-feedback ms-3">Goal type is required</div>
+            <div className="invalid-feedback ms-3">Lĩnh vực là bắt buộc</div>
           </div>
         </div>
         <div className="row g-3 row-cols-1 row-cols-sm-2 mt-2">
           <div className="col">
-            <p className="fw-bold">Reason:</p>
+            <p className="fw-bold">Lý do:</p>
             <input
               className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
               type="text"
@@ -91,20 +91,20 @@ const CreateObjective = ({ getObjectiveData, defaultContent, defaultDeadlineAt, 
               onChange={(e) => setReason(e.target.value)}
               value={reason}
             />
-            <div className="invalid-feedback ms-3">Reason is required</div>
+            <div className="invalid-feedback ms-3">Lý do là bắt buộc</div>
           </div>
           <div className="col-sm-4 col-md-3 col-lg-2">
-            <p className="fw-bold">Status:</p>
+            <p className="fw-bold">Trạng thái:</p>
             <select
               className="h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3 form-select"
               aria-label="Default select example"
               onChange={(e) => setStatus(e.target.value)}
               defaultValue={status}
             >
-              <option value="NOT_STARTED">NOT_STARTED</option>
-              <option value="IN_PROGRESS">IN_PROGRESS</option>
+              <option value="NOT_STARTED">Chưa bắt đầu</option>
+              <option value="IN_PROGRESS">Trong tiến trình</option>
             </select>
-            <div className="invalid-feedback ms-3">Status is required</div>
+            <div className="invalid-feedback ms-3">Trạng thái là bắt buộc</div>
           </div>
         </div>
       </div>

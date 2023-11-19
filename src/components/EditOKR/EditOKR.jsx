@@ -40,13 +40,13 @@ const EditOKR = () => {
     }).then((response) => {
       setIsLoading(false);
       if (response.status === 200) {
-        Swal.fire('Good job!', response.data.message, 'success').then(() => {
+        Swal.fire('Hoàn thành!', response.data.message, 'success').then(() => {
           navigate('/');
         });
       } else {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
+          title: 'Rất tiếc...',
           text: response.data.message,
         });
       }
@@ -62,7 +62,7 @@ const EditOKR = () => {
       {isLoading && <Modal children={<Loader />} />}
       {!isLoading && (
         <>
-          <h1>Edit OKR</h1>
+          <h1>Chỉnh sửa mục tiêu</h1>
           <form noValidate onSubmit={submitHandler} className={wasValidated}>
             <CreateObjective
               getObjectiveData={getObjectiveData}
@@ -81,7 +81,7 @@ const EditOKR = () => {
               type="submit"
               className="btn btn-primary rounded-pill h-3rem px-5"
             >
-              update
+              Cập nhật
             </button>
           </form>
         </>

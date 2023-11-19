@@ -55,7 +55,7 @@ const Objective = ({
       </div>
       <Link to={`/objectives/edit/${id}`}>
         <button className="btn btn-sm btn-rounded btn-outline-secondary ripple-surface-primary">
-          edit
+          Sửa
         </button>
       </Link>
 
@@ -63,7 +63,7 @@ const Objective = ({
         className="btn btn-sm btn-rounded btn-outline-secondary ripple-surface-primary ms-2"
         onClick={deleteOkrHandler.bind(null, id)}
       >
-        delete
+        Xóa
       </button>
     </div>
   );

@@ -32,7 +32,7 @@ const CreateOKR = () => {
         (response) => {
           setIsLoading(false);
           if (response.status === 201) {
-            Swal.fire('Good job!', response.data.message, 'success').then(
+            Swal.fire('Hoàn thành!', response.data.message, 'success').then(
               () => {
                 navigate('/');
               }
@@ -40,7 +40,7 @@ const CreateOKR = () => {
           } else {
             Swal.fire({
               icon: 'error',
-              title: 'Oops...',
+              title: 'Rất tiếc...',
               text: response.data.message,
             });
           }

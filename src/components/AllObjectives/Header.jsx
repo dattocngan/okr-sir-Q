@@ -27,7 +27,7 @@ const Header = () => {
       </Link>
       <div className="d-flex align-items-center align-content-end justify-content-lg-end">
         <button className="material-icons btn btn-floating d-none d-sm-block me-5">
-          notifications
+        notifications
         </button>
         <img
           src={avatar}
@@ -50,12 +50,12 @@ const Header = () => {
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li>
               <Link className="dropdown-item" to={'/user'}>
-                Profile
+                Hồ sơ
               </Link>
             </li>
             <li >
                 <span className="dropdown-item" onClick={logoutHandler}>
-                   Log out
+                   Đăng xuất
                 </span>
             </li>
           </ul>

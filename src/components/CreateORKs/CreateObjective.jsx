@@ -31,14 +31,14 @@ const CreateObjective = ({ getObjectiveData }) => {
             <div className="flex-fill ">
               <input
                 type="text"
-                placeholder="type objective"
+                placeholder="Mục tiêu"
                 name="content"
                 className="form-control h-3rem bg-white shadow-custom rounded-pill border-0 ps-3"
                 required
                 onChange={(e) => setObjective(e.target.value)}
                 value={objective}
               />
-              <div className="invalid-feedback ms-3">Objective is required</div>
+              <div className="invalid-feedback ms-3">Mục tiêu là bắt buộc</div>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ const CreateObjective = ({ getObjectiveData }) => {
               onChange={(e) => setDueDate(e.target.value)}
               value={dueDate}
             />
-            <div className="invalid-feedback ms-3">Due date is required</div>
+            <div className="invalid-feedback ms-3">Hạn cuối là bắt buộc</div>
           </div>
           <div className="col">
             <p className="fw-bold">Lĩnh vực:</p>
@@ -68,7 +68,7 @@ const CreateObjective = ({ getObjectiveData }) => {
               onChange={(e) => setGoalType(e.target.value)}
               value={goalType}
             />
-            <div className="invalid-feedback ms-3">Goal type is required</div>
+            <div className="invalid-feedback ms-3">Lĩnh vực là bắt buộc</div>
           </div>
         </div>
         <div className="row g-3 row-cols-1 row-cols-sm-2 mt-2">
@@ -83,7 +83,7 @@ const CreateObjective = ({ getObjectiveData }) => {
               onChange={(e) => setReason(e.target.value)}
               value={reason}
             />
-            <div className="invalid-feedback ms-3">Reason is required</div>
+            <div className="invalid-feedback ms-3">Lý do là bắt buộc</div>
           </div>
           <div className="col-sm-4 col-md-3 col-lg-2">
             <p className="fw-bold">Trạng thái:</p>
@@ -96,7 +96,7 @@ const CreateObjective = ({ getObjectiveData }) => {
               <option value="NOT_STARTED">Chưa bắt đầu</option>
               <option value="IN_PROGRESS">Trong tiến trình</option>
             </select>
-            <div className="invalid-feedback ms-3">Status is required</div>
+            <div className="invalid-feedback ms-3">Trạng thái là bắt buộc</div>
           </div>
         </div>
       </div>
