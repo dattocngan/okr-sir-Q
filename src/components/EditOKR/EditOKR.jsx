@@ -40,9 +40,8 @@ const EditOKR = () => {
     }).then((response) => {
       setIsLoading(false);
       if (response.status === 200) {
-        Swal.fire('Hoàn thành!', response.data.message, 'success').then(() => {
-          navigate('/');
-        });
+        Swal.fire('Hoàn thành!', response.data.message, 'success')
+        navigate('/');
       } else {
         Swal.fire({
           icon: 'error',

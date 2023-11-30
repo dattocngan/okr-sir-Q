@@ -70,7 +70,7 @@ const KeyresultItem = ({
         <input
           className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
           type="text"
-          placeholder="e.g. Start sales in new countries and hit $200,000 there"
+          placeholder="vd. Bắt đầu bán ở đất nước mới và đạt được 200,000$"
           required
           onChange={(e) => setName(e.target.value)}
           value={name}
@@ -82,7 +82,7 @@ const KeyresultItem = ({
         <input
           className="form-control h-3rem bg-white rounded-pill shadow-custom border-0 w-100 px-3"
           type="text"
-          placeholder="vd. Btaws đầu bán ở đất nước mới và đạt được 200,000$"
+          placeholder="200,000,000"
           required
           onChange={(e) => setCurrentAchievement(e.target.value)}
           value={currentAchievement}
@@ -150,7 +150,7 @@ const KeyresultItem = ({
         onClick={() => deleteKeyresult(id)}
       >
         {' '}
-        đóng
+        close
       </i>
     </div>
   );
